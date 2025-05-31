@@ -1,0 +1,10 @@
+
+.genre-div{
+    display: none;
+
+    @media(width > 60rem){
+          display: flex;
+          gap: 1rem;
+    }
+  
+}

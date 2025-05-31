@@ -1,0 +1,21 @@
+
+button{
+    background-color: #DDDDDD;
+    padding: .75rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    font-size: .75rem;
+    color: black;
+    font-weight: 300;
+    cursor: pointer;
+    transition: opacity 0.5s ease-in-out;
+    border: none;
+        &:hover{
+            opacity: 0.4;
+
+        }
+}
