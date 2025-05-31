@@ -1,0 +1,32 @@
+@import 'colors';
+
+.Hero_main_container{
+    color: $main_text_color;
+    padding: 3rem 4rem;
+    text-align: center;
+
+        @media(width >= 60rem){
+        padding-top: 10rem;
+    }
+    .hero_main_text{
+        font-weight: bold;
+        font-size: 1.5rem;
+             @media(width >= 60rem){
+        font-size: 2rem;
+
+    }
+    }
+    .hero_ready{
+        margin-top: 1rem;
+        font-size: .9rem;
+    }
+    .hero_email{
+        margin-top: 1rem;
+        padding: .8rem 2rem;
+        margin-bottom: 1rem;
+        border-radius: 1rem;
+        cursor: pointer;
+        margin-right: 1rem;
+        font-size: 16px;
+    }
+}

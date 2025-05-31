@@ -1,0 +1,20 @@
+@import 'colors';
+
+.slide_main_div{
+    padding: 1rem 2rem;
+        .trending{
+            font-weight: bold;
+             color: white;
+             margin-bottom: 2rem;
+             font-size: 1rem;
+             @media(width > 60rem){
+                font-size: 1.5rem;
+             }
+
+        }
+        .image_div{
+            display: flex;
+            gap: 1rem;
+        }
+
+}

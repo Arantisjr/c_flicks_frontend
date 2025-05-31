@@ -1,0 +1,27 @@
+@import 'colors';
+
+
+.NavBarMainContainer{
+    display: flex;
+    padding: 1rem 1rem;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
+
+        .Nav_left_section{
+            display: flex; 
+            color: white;
+            gap: 1rem;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+
+                .nav_lang{
+                    text-align: center;
+                    font-size: .7rem;
+                                 @media(width >= 60rem){
+                                        font-size: 1rem;
+               }
+                }
+        }
+}

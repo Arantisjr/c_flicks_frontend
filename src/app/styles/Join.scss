@@ -1,0 +1,23 @@
+@import 'colors';
+
+
+.join_container{
+
+    .r_heading{
+        color: white;
+        font-size: 1rem;
+        padding: 1rem 2rem;
+            @media(width > 60rem){
+                font-size: 1.5rem;
+            }
+    }
+    .join_reasons{
+
+        @media(width > 60rem){
+               display: flex;
+                gap: 1rem;
+                justify-content: center;
+        }
+      
+    }
+}

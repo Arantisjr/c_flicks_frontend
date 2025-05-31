@@ -1,0 +1,18 @@
+@import 'colors';
+
+
+.my_button{
+    padding: .5rem 1rem;
+    background-color:$btn-bg;
+    color: $btn-color;
+    font-weight: 500;
+    font-size: .75rem;
+    border-radius: .5rem;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+                 @media(width >= 60rem){
+                padding: 1rem 1rem;
+
+    }
+}
