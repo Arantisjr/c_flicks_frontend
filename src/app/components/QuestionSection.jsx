@@ -9,40 +9,26 @@ const QuestionSection = () => {
     <div className="Question_main_div">
         <Questions 
         question={'Where Can I Watch C-Flicks Movies?'}
-         answer='C-Flicks is a 
-        vibrant digital platform dedicated to showcasing 
-        the rich and diverse culture of Cameroon 
-        through the power of film' />
+         answer='You can watch C-flicks movies directly on our platform
+          anytime and anywhere. Whether your 
+          are on a Laptop, Tablet or Mobile device' />
          <Questions 
-        question={'Where Can I Watch C-Flicks Movies?'}
-         answer='C-Flicks is a 
-        vibrant digital platform dedicated to showcasing 
-        the rich and diverse culture of Cameroon 
-        through the power of film' />
+        question={'What can i watch on C-flicks?'}
+         answer='C-flicks offers a vaibriant collection of Cameroonians
+          movies that celebrate our culture, 
+          creativity and story telling heritage' />
          <Questions 
-        question={'What is C-flicks'}
-         answer='C-Flicks is a 
-        vibrant digital platform dedicated to showcasing 
-        the rich and diverse culture of Cameroon 
-        through the power of film' />
+        question={'Is C-flicks free?'}
+         answer='Yes!, C-flicks is free, Watch your favourite Cameroonian movies with no stress' />
          <Questions 
-        question={'What is C-flicks'}
-         answer='C-Flicks is a 
-        vibrant digital platform dedicated to showcasing 
-        the rich and diverse culture of Cameroon 
-        through the power of film' />
+        question={'Why use C-flicks?'}
+         answer='C-flicks provides the best Cameroonian Cultural movies for free, No Subscription required , ' />
          <Questions 
-        question={'What is C-flicks'}
-         answer='C-Flicks is a 
-        vibrant digital platform dedicated to showcasing 
-        the rich and diverse culture of Cameroon 
-        through the power of film' />
+        question={'Is there a Mobile or Desktop app for C-flicks? '}
+         answer='No!, not yet, there is no mobile or Desktop app for C-flicks but will be in future' />
          <Questions 
-        question={'What is C-flicks'}
-         answer='C-Flicks is a 
-        vibrant digital platform dedicated to showcasing 
-        the rich and diverse culture of Cameroon 
-        through the power of film' />
+        question={'Who can use C-flicks?'}
+         answer='Any cameroonian or an outsider who want to enjoy Cameroonian movies at it finest' />
     </div>
     
     </>
