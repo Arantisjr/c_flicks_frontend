@@ -1,41 +1,85 @@
 @import 'colors';
 
+.main_footer {
+  background-color: $join_div; 
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 25rem;
+  border-top: 2px solid gray;
 
-ul{
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+  }
+}
+
+.left_link, .right_link {
+  flex: 1;
+  margin: 1rem;
+
+  ul {
     list-style: none;
-        li{
-            a{
-                 text-decoration: none;
-                 color: white;
-                 transition: color 0.3 ease-in-out; 
-            }
-              :hover{
-                    color:red;
-                 }
-            
-        }
-    }
-.socials{
-    display: flex;
-    gap: 1rem;
-    margin-top: .5rem;
-    margin-bottom: .5rem;
-}    
-.main_footer{
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    padding: 5rem 2rem;
-    @media (width > 60rem){
-        padding: 5rem 25rem;
-    }
-    .left_link{
-        ul{
-            .company{
-                font-style: italic;
-                margin-bottom: 0.5rem;
+    padding: 0;
 
-            }
+    li {
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+
+      a {
+        text-decoration: none;
+        color: white;
+
+        &:hover {
+          color: red;
         }
+      }
+
+      &.company {
+        font-weight: bold;
+        font-size: 1rem;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+      }
     }
+  }
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+
+  svg {
+    font-size: 1.2rem;
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+      color: red;
+    }
+  }
+}
+
+.right_link {
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @media (max-width: 768px) {
+      align-items: center;
+    }
+
+    span {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+  }
 }

@@ -1,45 +1,70 @@
-'use client'
-import React, { useState } from 'react';
+'use client';
+import React, { useState, useEffect } from 'react';
 import '../styles/Slider_component.scss';
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import images from '../images/images.js';
-import Image from 'next/image';
 
 const Slider_component = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [startIndex, setStartIndex] = useState(0);
+  const imagesPerPage = 3;
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    fetch('https://c-flicks.onrender.com/all-movies')
+      .then((res) => res.json())
+      .then((data) => {
+        setMovies(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('Error fetching C-flicks movies', err);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+
+  const currentImages = movies.slice(startIndex, startIndex + imagesPerPage);
 
   const nextSlide = () => {
- 
+    const maxIndex = movies.length - imagesPerPage;
+    setStartIndex((prev) => Math.min(prev + imagesPerPage, maxIndex));
   };
 
   const prevSlide = () => {
- 
+    setStartIndex((prev) => Math.max(prev - imagesPerPage, 0));
   };
 
   return (
     <div className="slide_main_div">
       <h1 className='trending'>Trending now</h1>
+
       <div className="image_div">
-        <button className="slider_button_left" onClick={prevSlide}>
+       <button
+          className="slider_button"
+          onClick={prevSlide}
+          disabled={startIndex === 0}
+        >
           <FaAngleLeft />
         </button>
-            {images.map((image) => (
-              <div className="slider_item" key={image.id}>
-                <Image
-                  src={image.img}
-                  alt={`image ${image.id}`}
-                  width={150}
-                  height={150}
-                />
-              </div>
-            ))}
-     
-        <button className="slider_button right" onClick={nextSlide}>
+       
+
+        {currentImages.map((movie) => (
+          <div className="slider_item" key={movie.id}>
+            <img src={movie.thumbnail} alt={`movie number ${movie.id}`} />
+          </div>
+        ))}
+
+       
+       <button
+          className="slider_button"
+          onClick={nextSlide}
+          disabled={startIndex + imagesPerPage >= movies.length}
+        >
           <FaAngleRight />
         </button>
-        </div>
       </div>
+    </div>
   );
 };
 

@@ -1,9 +1,11 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 import logo from '../images/C-flicks.png'
 import Button from './Button'
 import '../styles/NavBar.scss'
 import { FaChevronDown } from "react-icons/fa";
+import Link from 'next/link'
 
 
 
@@ -20,7 +22,7 @@ const NavBar = () => {
             <div className="Nav_left_section">
                
                     <p className='nav_lang'>English <FaChevronDown /></p>
-                    <Button text= 'Sign up' />
+              <Link href ='/homepage' >      <Button text= 'Sign up' /></Link>
 
             </div>
 

@@ -15,6 +15,28 @@
         .image_div{
             display: flex;
             gap: 1rem;
+            align-items: center;
+                  @media (width< 414px){
+                   gap: .2rem;
+                 }
+            
+             img{
+                border-radius: 1rem;
+                 @media (width< 414px){
+                    width: 6rem;
+                    height: 90%;
+                 }
+             }
+        }
+        .slider_button{
+            padding: 2rem .3rem;
+            background-color: gray;
+            font-weight: bolder;
+            height: 6rem;
+            border-radius: 5px;
+            border: none;
+            color: black;
+            font-size: 1rem;
         }
 
 }

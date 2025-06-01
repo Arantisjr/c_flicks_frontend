@@ -2,6 +2,7 @@ import HeroSection2 from "../components/HeroSection2";
 import NavBar from "../components/NavBar";
 import '../styles/page.scss'
 import Genre from "./Genre";
+import HomeCaption from "./HomeCaption";
 
 
 export default function Home() {
@@ -17,8 +18,8 @@ export default function Home() {
 
       <main className="main">
         <Genre />
-  
       </main>
+        <HomeCaption />
      
     </div>
   );

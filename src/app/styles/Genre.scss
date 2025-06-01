@@ -1,10 +1,79 @@
-
+@import 'colors';
 .genre-div{
-    display: none;
+    padding: 1rem;
+    padding-left: 2rem;
+       h1{
+        color: white;
+        font-weight: bold;
+        font-size: 1rem;
+       }
 
-    @media(width > 60rem){
-          display: flex;
-          gap: 1rem;
+    .mobile_view{
+        display: none;
+        @media (width < 414px){
+            display: block;
+        }
+        ul{
+            list-style: none;
+            color: white;
+            font-weight: bold;
+            background-color: $join_div;
+            text-align: center;
+            border-radius: 1rem;
+            margin-top: 1rem;
+            padding: 1rem;
+
+                li{
+                    border-bottom: 1px solid gray;
+                    cursor: pointer;
+                }
+        }
+    }
+    .desktop_view{
+        display: none;
+        @media(width >= 414px){
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+    }
+    .movies_div{
+        background-color: $join_div;
+        width: 100%;
+        margin-top: 2rem;
+        padding: 1rem 4rem;
+        gap: 1rem;
+        color: white;
+        align-items: center;
+        text-align: center;
+        font-weight: bold;
+            .all_movies{
+                display: grid;
+                grid-template-columns: repeat(6,1fr);
+                    @media (width < 414px){
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        
+                    }
+                    .movieList{
+                        margin-right: 1rem;
+                        overflow: hidden;
+                        display: inline-block;
+                        
+
+                        img{
+                            border-radius: 1rem;
+                            cursor: pointer;
+                            transition: transform 0.3s ease;
+                                &:hover{
+                                    transform: scale(1.1);
+                                }
+                        }
+                    }
+            }
     }
   
 }
+

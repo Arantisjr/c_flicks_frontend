@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import '../styles/Footer.scss'
 import Link from 'next/link'
@@ -12,17 +13,17 @@ const Footer = () => {
     <div className="main_footer">
         <div className="left_link">
             <ul>
-                <li className='company'> <Link href = '/'> <a>Company</a> </Link> </li>
+                <li className='company'> <Link href = '/'> Company </Link> </li>
 
-               <li> <Link href = '/'> <a>About</a> </Link> </li>
-                <li> <Link href = '/'> <a>Start Watching</a> </Link> </li>
-                <li> <Link href = '/'> <a>Support</a> </Link> </li>
+               <li> <Link href = '/'> About </Link> </li>
+                <li> <Link href = '/'> Start Watching </Link> </li>
+                <li> <Link href = '/'> Support </Link> </li>
             </ul>
         </div>
         <div className="right_link">
             <ul>
-                <li> <Link href = '/'> <a>connect</a> </Link> </li>
-                <li> <Link href = '/'> <a href="">Contact us</a></Link> </li>
+                <li  className='company'> <Link href = '/'> connect </Link> </li>
+                <li> <Link href = '/'> Contact us</Link> </li>
                 <div className="socials">
                     <FaFacebookF />
                     <FaXTwitter />
@@ -30,7 +31,16 @@ const Footer = () => {
                     <FaLinkedin />
 
                 </div>
-                &copy; <span>Copyright {new Date().getFullYear()}</span>
+           
+            </ul>
+        </div>
+           <div className="left_link">
+            <ul>
+                <li className='company'>  Legal  </li>
+
+               <li> <Link href = '/'> Terms and conditions </Link> </li>
+                <li> <Link href = '/'> Privacy </Link> </li>
+                <li>  &copy; <span>Copyright {new Date().getFullYear()}</span></li>
             </ul>
         </div>
     </div>

@@ -1,0 +1,36 @@
+@import '../styles/colors';
+.caption_div{
+background-color: $btn-bg;
+padding: 2em 3rem;
+color: white;
+text-align: right;
+font-size: 1.5rem;
+margin-top: 2rem;
+margin-bottom: 2rem;
+font-weight: bold;
+        @media(width<414px){
+            font-size: 1rem;
+            text-align: center;
+        }
+        .captionAbout{
+            border: 1px solid white;
+            border-radius: 1rem;
+            padding: 1rem 2rem;
+            background-color: $btn-bg;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            margin-top: 1rem;
+            align-items: center;
+            margin-left: 100rem;
+                &:hover{
+                    transform: scale(1.1);
+
+                }
+                @media(width < 414px){
+
+                    margin-left: 5rem;
+                }
+            
+        }
+}
