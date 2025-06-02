@@ -8,11 +8,16 @@
      letter-spacing: 1px;
      color: white;
      margin: 1rem 2rem;
+     cursor: pointer;
+     transition: transform 0.3s ease;
        
         @media(width > 60rem){
             width: 15rem;
             height: 15rem;
 
+        }
+        &:hover{
+            transform: scale(1.1);
         }
 
     }

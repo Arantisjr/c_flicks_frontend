@@ -1,8 +1,16 @@
-import React from "react";
+'use client'
+
+import React, {useState} from "react";
 import "../styles/HeroSection.scss";
 import Button from "./Button";
+import Link from 'next/link'
 
 const HeroSection = () => {
+  const[email, setEmail] = useState('');
+
+  const handleSubmit = () => {
+    console.log("Email: ", email);
+  }
   return (
     <>
       <div className="Hero_main_container">
@@ -14,8 +22,10 @@ const HeroSection = () => {
           type="email"
           className="hero_email"
           placeholder="Email address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
-        <Button text='Get Started' />
+    <Link href ='/homepage' > <Button onClick= {handleSubmit} text='Get Started' /></Link>
       </div>
     </>
   );

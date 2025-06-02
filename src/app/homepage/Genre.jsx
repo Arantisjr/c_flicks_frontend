@@ -77,7 +77,7 @@ const Genre = () => {
     <>
       <div className="genre-div">
         <div className="mobile_view">
-          <button onClick={() => setdropdownOpen(!dropdownOpen)}>
+          <button className="genre_button_text" onClick={() => setdropdownOpen(!dropdownOpen)}>
             {dropdownOpen ? "close genres" : "show genres"}
           </button>
           {dropdownOpen && (

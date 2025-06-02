@@ -32,7 +32,7 @@ const Slider_component = () => {
   };
 
   const prevSlide = () => {
-    setStartIndex((prev) => Math.max(prev - imagesPerPage, 0));
+    setStartIndex((prev) => Math.max(prev - imagesPerPage, 0)); 
   };
 
   return (

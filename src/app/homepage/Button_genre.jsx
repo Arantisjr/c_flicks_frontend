@@ -3,7 +3,7 @@ import '../styles/button_genre.scss'
 
 const Button_genre = ({genre_img, genre_type}) => {
   return (
-    <button>
+    <button className='genre_button'>
       
           {genre_img}
 

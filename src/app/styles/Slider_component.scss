@@ -22,10 +22,15 @@
             
              img{
                 border-radius: 1rem;
+                cursor: pointer;
                  @media (width< 414px){
                     width: 6rem;
                     height: 90%;
                  }
+                 transition: transform 0.3s ease;
+                       &:hover{
+                        transform: scale(1.1);
+                    }
              }
         }
         .slider_button{
@@ -37,6 +42,11 @@
             border: none;
             color: black;
             font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+                &:hover{
+                 transform: scale(1.1);
+             }
         }
 
 }

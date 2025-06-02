@@ -7,6 +7,17 @@
     align-items: center;
     justify-items: center;
     justify-content: space-between;
+        .logo_name{
+            color: $btn-bg;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+                @media(width < 60rem){
+                   font-size: 1.5rem;
+                    
+
+                }
+        }
 
         .Nav_left_section{
             display: flex; 

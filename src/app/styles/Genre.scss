@@ -58,14 +58,15 @@
                         
                     }
                     .movieList{
-                        margin-right: 1rem;
+                        margin-right:1rem 1rem;
                         overflow: hidden;
                         display: inline-block;
                         
 
                         img{
-                            border-radius: 1rem;
+                            border-radius: 3rem;
                             cursor: pointer;
+                            padding: 1rem 1rem;
                             transition: transform 0.3s ease;
                                 &:hover{
                                     transform: scale(1.1);
@@ -77,3 +78,32 @@
   
 }
 
+.showmore{
+    padding: 1rem 2rem;
+    background-color: #B20710;
+    border: none;
+    border-radius: 1rem;
+    font-weight: bold;
+    color: white;
+    margin-top: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+       &:hover{
+        transform: scale(1.1);
+    }
+
+}
+.genre_button_text{
+     padding: 1rem 2rem;
+    background-color: #B20710;
+    border: none;
+    border-radius: 1rem;
+    font-weight: bold;
+    color: white;
+    margin-top: 2rem;
+    cursor: pointer; 
+        transition: transform 0.3s ease;
+       &:hover{
+        transform: scale(1.1);
+    }
+}
