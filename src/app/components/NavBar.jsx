@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import Image from 'next/image'
-import logo from '../images/C-flicks.png'
+import logo from '../images/C-flicks.jpg'
 import Button from './Button'
 import '../styles/NavBar.scss'
 import { FaChevronDown } from "react-icons/fa";
