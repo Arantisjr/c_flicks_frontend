@@ -8,12 +8,16 @@ import Link from 'next/link'
 
 
 const NavBar = () => {
+
+  const chnageLanguage = () =>{
+
+  }
   return (
     <>
     <div className="NavBarMainContainer">
     <p className='logo_name'> C-FLICKS </p>
             <div className="Nav_left_section">
-                    <p className='nav_lang'>English <FaChevronDown /></p>
+                    <div className='nav_lang'>English <FaChevronDown onClick={chnageLanguage()} /></div>
               <Link href ='/homepage' > <Button text= 'Sign up' /> </Link>
 
             </div>
