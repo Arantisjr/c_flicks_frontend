@@ -10,7 +10,7 @@
 
     .mobile_view{
         display: none;
-        @media (width < 414px){
+        @media (width <= 414px){
             display: block;
         }
         ul{
@@ -31,7 +31,7 @@
     }
     .desktop_view{
         display: none;
-        @media(width >= 414px){
+        @media(width > 414px){
             display: flex;
             gap: 1rem;
             align-items: center;
