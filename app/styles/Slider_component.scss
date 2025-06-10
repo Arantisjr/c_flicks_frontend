@@ -21,6 +21,8 @@
 
     img {
       border-radius: 1rem;
+      width: 15rem;
+      height: 20rem;
       cursor: pointer;
       @media (width<= 414px) {
         width: 6rem;

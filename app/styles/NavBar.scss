@@ -3,10 +3,21 @@
 
 .NavBarMainContainer{
     display: flex;
+    // background-color: #121112;
     padding: 1rem 1rem;
     align-items: center;
     justify-items: center;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+     transition: background 0.3s;
+
+  &.scrolled {
+    background: black;
+  }
         .logo_name{
             color: $btn-bg;
             font-size: 2rem;

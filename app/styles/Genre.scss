@@ -50,7 +50,7 @@
             .all_movies{
                 display: grid;
                 grid-template-columns: repeat(6,1fr);
-                    @media (width < 414px){
+                    @media (width <= 414px){
                         display: flex;
                         flex-direction: column;
                         justify-content: center;

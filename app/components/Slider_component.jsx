@@ -44,6 +44,7 @@ const Slider_component = () => {
           className="slider_button"
           onClick={prevSlide}
           disabled={startIndex === 0}
+          type="button"
         >
           <FaAngleLeft />
         </button>
@@ -60,6 +61,7 @@ const Slider_component = () => {
           className="slider_button"
           onClick={nextSlide}
           disabled={startIndex + imagesPerPage >= movies.length}
+          type="button"
         >
           <FaAngleRight />
         </button>

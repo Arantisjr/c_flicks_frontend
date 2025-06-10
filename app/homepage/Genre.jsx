@@ -1,11 +1,19 @@
 "use client";
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Button_genre from "./Button_genre";
 import { GiLoveMystery } from "react-icons/gi";
 import { LiaNimblr } from "react-icons/lia";
 import { RiMovie2AiFill } from "react-icons/ri";
 import "../styles/Genre.scss";
+
+const GENRE_MAP = {
+  All: "movies",
+  Drama: "drama",
+  Adventure: "adventures",
+  Action: "action",
+  Music: "music",
+  Comedy: "comedy",
+};
 
 const Genre = () => {
   const [dropdownOpen, setdropdownOpen] = useState(false);
@@ -17,7 +25,8 @@ const Genre = () => {
     music: [],
     comedy: [],
   });
-  const[visibleCount, setvisibleCount] = useState(14);
+  const [visibleCount, setvisibleCount] = useState(14);
+  const [selectedGenre, setSelectedGenre] = useState("All");
 
   useEffect(() => {
     const fetchAll = async () => {
@@ -31,11 +40,11 @@ const Genre = () => {
           comedyRes,
         ] = await Promise.all([
           fetch("https://c-flicks.onrender.com/all-movies"),
-          fetch("https://c-flicks.onrender.com/all-movies/Drama"),
-          fetch("https://c-flicks.onrender.com/all-movies/Adventures"),
-          fetch("https://c-flicks.onrender.com/all-movies/Action"),
-          fetch("https://c-flicks.onrender.com/all-movies/Music"),
-          fetch("https://c-flicks.onrender.com/all-movies/Comedy"),
+          fetch("https://c-flicks.onrender.com/all-movies/genre/Drama"),
+          fetch("https://c-flicks.onrender.com/all-movies/genre/Adventure"),
+          fetch("https://c-flicks.onrender.com/all-movies/genre/Action"),
+          fetch("https://c-flicks.onrender.com/all-movies/genre/Music"),
+          fetch("https://c-flicks.onrender.com/all-movies/genre/Comedy"),
         ]);
 
         const [movies, drama, adventures, action, music, comedy] =
@@ -49,8 +58,6 @@ const Genre = () => {
           ]);
 
         setData({ movies, drama, adventures, action, music, comedy });
-        console.log(data);
-        
       } catch (err) {
         console.error("Failed to fetch endpoints", err);
       }
@@ -59,47 +66,81 @@ const Genre = () => {
     fetchAll();
   }, []);
 
-  // Now it's safe to access these
-  const allMovies = data.movies;
-  const dramaGenre = data.drama;
-  const adventuresGenre = data.adventures;
-  const actionGenre = data.action;
-  const musicGenre = data.music;
-  const comedyGenre = data.comedy;
-  const genres = ["Drama", "Adventure", "Action", "Music", "Comedy"];
+  // Get movies for selected genre
+  const getMoviesByGenre = () => {
+    const key = GENRE_MAP[selectedGenre];
+    return data[key] || [];
+  };
 
+  const genres = [
+    { name: "All", icon: <RiMovie2AiFill /> },
+    { name: "Drama", icon: <LiaNimblr /> },
+    { name: "Adventure", icon: <RiMovie2AiFill /> },
+    { name: "Action", icon: <LiaNimblr /> },
+    { name: "Music", icon: <LiaNimblr /> },
+    { name: "Comedy", icon: <GiLoveMystery /> },
+  ];
 
-  //visibility of movies
-  const showMore = () =>{
+  // Visibility of movies
+  const showMore = () => {
     setvisibleCount((prev) => prev + 14);
-  }
-  const visibleMovies = allMovies.slice(0, visibleCount);
+  };
+
+  const moviesToShow = getMoviesByGenre().slice(0, visibleCount);
+
   return (
     <>
       <div className="genre-div">
+        {/* Mobile View */}
         <div className="mobile_view">
-          <button className="genre_button_text" onClick={() => setdropdownOpen(!dropdownOpen)}>
+          <button
+            className="genre_button_text"
+            onClick={() => setdropdownOpen(!dropdownOpen)}
+          >
             {dropdownOpen ? "close genres" : "show genres"}
           </button>
           {dropdownOpen && (
             <ul>
               {genres.map((genre) => (
-                <li key={genre}>{genre}</li>
+                <li
+                  key={genre.name}
+                  style={{
+                    cursor: "pointer",
+                    fontWeight: selectedGenre === genre.name ? "bold" : "normal",
+                  }}
+                  onClick={() => {
+                    setSelectedGenre(genre.name);
+                    setdropdownOpen(false);
+                    setvisibleCount(14);
+                  }}
+                >
+                  {genre.name}
+                </li>
               ))}
             </ul>
           )}
         </div>
+        {/* Desktop View */}
         <div className="desktop_view">
-          <Button_genre genre_img={<LiaNimblr />} genre_type="Drama" />
-          <Button_genre genre_img={<RiMovie2AiFill />} genre_type="Adverture" />
-          <Button_genre genre_img={<LiaNimblr />} genre_type="Action" />
-          <Button_genre genre_img={<LiaNimblr />} genre_type="Music" />
-          <Button_genre genre_img={<GiLoveMystery />} genre_type="Comedy" />
+          {genres.map((genre) => (
+            <Button_genre
+              key={genre.name}
+              genre_img={genre.icon}
+              genre_type={genre.name}
+              clickme={
+                () => {
+                  setSelectedGenre(genre.name);
+                  setvisibleCount(14);
+              }
+              }
+              isActive={selectedGenre === genre.name}
+            />
+          ))}
         </div>
         <div className="movies_div">
           <div className="all_movies">
-            {allMovies.length > 0 ? (
-              visibleMovies.map((m) => (
+            {moviesToShow.length > 0 ? (
+              moviesToShow.map((m) => (
                 <div className="movieList" key={m.id}>
                   <img src={m.thumbnail} alt={`movie number ${m.id}`} />
                   <p>{m.movie_name}</p>
@@ -109,12 +150,11 @@ const Genre = () => {
               <p>Loading movies...</p>
             )}
           </div>
-          {
-            visibleCount < allMovies.length && (
-
-              <button className="showmore" onClick={showMore}>Show more</button>
-            )
-          }
+          {visibleCount < getMoviesByGenre().length && (
+            <button className="showmore" onClick={showMore}>
+              Show more
+            </button>
+          )}
         </div>
       </div>
     </>
