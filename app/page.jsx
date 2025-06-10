@@ -5,13 +5,12 @@ import "../app/globals.scss";
 import Slider_component from "./components/Slider_component";
 import Join from "./components/Join";
 import QuestionSection from "./components/QuestionSection";
-import Footer from "./components/Footer";
 
 export default function Home() {
   return (
     <div>
       <nav className="Navbar">
-        <NavBar />
+        {/* <NavBar /> */}
         <HeroSection />
       </nav>
       <hr className="breakline" />

@@ -68,6 +68,7 @@ const Genre = () => {
   const comedyGenre = data.comedy;
   const genres = ["Drama", "Adventure", "Action", "Music", "Comedy"];
 
+
   //visibility of movies
   const showMore = () =>{
     setvisibleCount((prev) => prev + 14);

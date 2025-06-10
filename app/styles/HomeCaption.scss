@@ -8,7 +8,7 @@ font-size: 1.5rem;
 margin-top: 2rem;
 margin-bottom: 2rem;
 font-weight: bold;
-        @media(width<414px){
+        @media(width<=414px){
             font-size: 1rem;
             text-align: center;
         }
@@ -27,7 +27,7 @@ font-weight: bold;
                     transform: scale(1.1);
 
                 }
-                @media(width < 414px){
+                @media(width <= 414px){
 
                     margin-left: 5rem;
                 }
