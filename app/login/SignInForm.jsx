@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useState } from 'react';
-import '../styles/SignInForm.scss'
+import '../styles/SignInForm.scss';
+import Link from 'next/link';
 
 const SignInForm = () => {
   const [email, setEmail] = useState('');
@@ -51,6 +52,7 @@ const SignInForm = () => {
         <button type="submit">Login</button>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
+      <p>Don't have an account? <Link href="/signup">Sign up</Link></p>
     </div>
   );
 };
