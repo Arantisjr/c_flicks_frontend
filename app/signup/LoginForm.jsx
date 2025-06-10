@@ -12,7 +12,7 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('/api/login', { 
+      const res = await fetch('https://c-flicks.onrender.com/users/sign_up', { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ firstName, lastName, email, password }),
@@ -42,7 +42,7 @@ const LoginForm = () => {
         />
         <input
           type="text"
-          id="lastName"
+          id="lastName" 
           name="lastName"
           placeholder="Last Name"
           required

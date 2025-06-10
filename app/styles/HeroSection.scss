@@ -3,11 +3,10 @@
 .Hero_main_container{
     color: $main_text_color;
     padding: 3rem 4rem;
+    padding-top: 11rem;
     text-align: center;
+  
 
-        @media(width >= 60rem){
-        padding-top: 10rem;
-    }
     .hero_main_text{
         font-weight: bold;
         font-size: 1.5rem;
