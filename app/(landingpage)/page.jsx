@@ -1,10 +1,10 @@
 import Image from "next/image";
-import NavBar from "./components/NavBar";
-import HeroSection from "./components/HeroSection";
-import "../app/globals.scss";
-import Slider_component from "./components/Slider_component";
-import Join from "./components/Join";
-import QuestionSection from "./components/QuestionSection";
+import NavBar from "../components/NavBar";
+import HeroSection from "../components/HeroSection";
+import "../globals.scss";
+import Slider_component from "../components/Slider_component";
+import Join from "../components/Join";
+import QuestionSection from "../components/QuestionSection";
 
 export default function Home() {
   return (

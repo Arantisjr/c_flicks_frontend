@@ -1,28 +1,23 @@
 'use client'
-import Button from "./Button";
+import Button from "../components/Button";
 import "../styles/NavBar.scss";
 import Link from "next/link";
-import Language from "./Language";
-
-const NavBar = () => {
-
-
-
-
+import Language from "../components/Language";
+const Home_nav = () => {
   return (
-    <>
+      <>
       <div className="NavBarMainContainer">
         <p className="logo_name"> C-FLICKS </p>
         <div className="Nav_left_section">
          <Language />
-          <Link href="/login">
+          <Link href="/homepage">
             {" "}
-            <Button text="Login" />{" "}
+            <Button text="Sign out" />{" "}
           </Link>
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default Home_nav

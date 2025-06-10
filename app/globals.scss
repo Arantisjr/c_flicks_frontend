@@ -32,3 +32,21 @@ body {
     }
 
 }
+.login_footer{
+  color: white;
+  letter-spacing: 1px;
+  margin-top: 20rem;
+}
+ .Slogo_name{
+            color: $btn-bg;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 3rem 2rem;
+            cursor: pointer;
+                @media(width <= 414px) {
+                   font-size: 1.5rem;
+                    
+
+                }
+        }

@@ -25,7 +25,7 @@ const HeroSection = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-    <Link href ='/homepage' > <Button onClick= {handleSubmit} text='Get Started' /></Link>
+    <Link href ='/signup' > <Button onClick= {handleSubmit} text='Get Started' /></Link>
       </div>
     </>
   );
