@@ -34,7 +34,9 @@ background-image: linear-gradient(rgba(0, 0, 0,0.7), rgba(0, 0, 0,0.4)), url('/i
 .login_footer{
   color: white;
   letter-spacing: 1px;
-  margin-top: 20rem;
+  margin-top: 18rem;
+  text-align: center;
+  
 }
  .Slogo_name{
             color: $btn-bg;
@@ -47,5 +49,9 @@ background-image: linear-gradient(rgba(0, 0, 0,0.7), rgba(0, 0, 0,0.4)), url('/i
                    font-size: 1.5rem;
                     
 
+                }
+                .Link{
+                  text-decoration: none;
+                  color: #B20710;
                 }
         }

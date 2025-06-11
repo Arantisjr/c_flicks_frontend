@@ -6,7 +6,8 @@ export default function Home() {
   return (
     <>
     <nav>
-      <h1 className="Slogo_name"> <Link href='/'>
+      <h1 className="Slogo_name"> 
+        <Link className="Link" href='/'>
        C-FLICKS 
       </Link> 
        </h1>

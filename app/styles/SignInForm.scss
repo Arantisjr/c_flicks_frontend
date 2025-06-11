@@ -41,4 +41,13 @@
                 transform: scale(1.1);
     }
           }
+          p{
+            
+            .sign_up{
+              color: white;
+                &:hover{
+                  color: blue;
+                }
+            }
+          }
 }

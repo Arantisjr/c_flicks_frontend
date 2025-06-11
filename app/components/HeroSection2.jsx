@@ -56,7 +56,7 @@ const HeroSection = () => {
     <>
       <div className="Hero_main_container">
         <h1 className="hero_main_text">
-        Unlimited Cameroon movies, TV, shows, and more. Watch anywhere. Cancel anytime.
+        Unlimited Cameroon movies, TV, shows, and more. Watch anywhere, anytime
         </h1>
         <form onSubmit={handleSearch} style={{ position: "relative" }}>
           <input

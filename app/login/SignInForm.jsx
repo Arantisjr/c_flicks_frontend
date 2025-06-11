@@ -20,8 +20,8 @@ const SignInForm = () => {
       });
       if (res.ok) {
              if (res.ok) {
-                 const data = await res.json(); // assuming your API returns user info
-                 localStorage.setItem('username', data.username || name); // fallback to input if needed
+                 const data = await res.json(); 
+                 localStorage.setItem('username', data.username || name);
                  window.location.href = '/dashboard';
 }
       } else {
@@ -55,7 +55,7 @@ const SignInForm = () => {
         <button type="submit">Login</button>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
-      <p>Don't have an account? <Link href="/signup">Sign up</Link></p>
+      <p>Don't have an account? <Link  className='sign_up' href="/signup">Sign up</Link></p>
     </div>
   );
 };

@@ -1,10 +1,12 @@
-'use client'
+'use client';
 import Button from "../components/Button";
 import React, { useEffect, useState } from 'react';
-
 import "../styles/NavBar.scss";
 import Link from "next/link";
 import Language from "../components/Language";
+
+
+
 const Home_nav = () => {
     const [scrolled, setScrolled] = useState(false);
   
@@ -24,7 +26,10 @@ const Home_nav = () => {
          <Language />
           <Link href="/homepage">
             {" "}
-            <Button text="Sign out" />{" "}
+       <Link href='/'>
+      
+        <Button text="Sign out" />{" "}
+       </Link>    
           </Link>
         </div>
       </div>

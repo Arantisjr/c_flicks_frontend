@@ -66,7 +66,7 @@ const Genre = () => {
     fetchAll();
   }, []);
 
-  // Get movies for selected genre
+  // Geting movies for selected genre
   const getMoviesByGenre = () => {
     const key = GENRE_MAP[selectedGenre];
     return data[key] || [];
