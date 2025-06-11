@@ -14,7 +14,7 @@ const LoginForm = () => {
       const res = await fetch('https://c-flicks.onrender.com/users/sign_up', { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ UserName, email, password }),
+        body: JSON.stringify({ username:UserName, email, password }),
       });
       if (res.ok) {
         alert('Signup successful!');
@@ -66,7 +66,7 @@ const LoginForm = () => {
         <button type="submit">Create an account</button>
         
       </form>
-      <p>Already have an account? <Link href="/signup">Sign in</Link></p>
+      <p>Already have an account? <Link href="/login">Sign in</Link></p>
     </div>
   );
 };

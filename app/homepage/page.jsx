@@ -1,5 +1,4 @@
 import HeroSection2 from "../components/HeroSection2";
-import NavBar from "../components/NavBar";
 import '../styles/page.scss'
 import Genre from "./Genre";
 import HomeCaption from "./HomeCaption";

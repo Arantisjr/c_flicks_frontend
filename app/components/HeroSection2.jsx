@@ -3,13 +3,11 @@ import React, { useState, useEffect } from "react";
 import "../styles/Herosection2.scss";
 import Button from "./Button";
 import { FaTimes } from "react-icons/fa";
-import { useTranslations } from 'next-intl';
 
 const HeroSection = () => {
   const [search, setSearch] = useState("");
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState("");
-  const t = useTranslations();
 
   // Fetch movie as user types (debounced)
   useEffect(() => {
@@ -58,13 +56,13 @@ const HeroSection = () => {
     <>
       <div className="Hero_main_container">
         <h1 className="hero_main_text">
-        {t(' Unlimited Cameroon movies, TV, shows, and more. Watch anywhere. Cancel anytime.')}
+        Unlimited Cameroon movies, TV, shows, and more. Watch anywhere. Cancel anytime.
         </h1>
         <form onSubmit={handleSearch} style={{ position: "relative" }}>
           <input
             type="text"
             className="hero_email"
-            placeholder={t('Search movies')}
+            placeholder='Search movies'
             value={search}
             onChange={e => setSearch(e.target.value)}
             autoComplete="off"
@@ -73,14 +71,14 @@ const HeroSection = () => {
             <span
               className="clear-search"
               onClick={handleClear}
-              aria-label={t('Clear search')}
+              aria-label='Clear search'
               tabIndex={0}
               role="button"
             >
               <FaTimes />
             </span>
           )}
-          <Button text={t('Search')} />
+          <Button text='Search' />
         </form>
         {error && <p style={{ color: "red", fontWeight: "bold" }}>{error}</p>}
         {movie && (

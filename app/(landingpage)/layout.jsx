@@ -1,8 +1,7 @@
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import "../globals.scss";
-import { NextIntlClientProvider } from 'next-intl';
-import { notFound } from 'next/navigation';
+
 
 export const metadata = {
   title: "C-Flicks",
@@ -10,17 +9,12 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children, params }) {
-  let messages;
-  try {
-    messages = (await import(`../../../messages/${params.locale}.json`)).default;
-  } catch (error) {
-    notFound();
-  }
+
 
   return (
-    <html lang={params.locale}>
+    <html >
       <body>
-        <NextIntlClientProvider messages={messages}>
+        
           <nav>
             <NavBar />
           </nav>
@@ -28,7 +22,7 @@ export default async function RootLayout({ children, params }) {
           <footer className="footer">
             <Footer />
           </footer>
-        </NextIntlClientProvider>
+      
       </body>
     </html>
   );

@@ -1,3 +1,4 @@
+@import 'colors';
 .dashboard-container {
   padding: 2rem;
   color: #fff;
@@ -20,6 +21,7 @@
   display: grid;
   grid-template-rows: 1fr;
   gap: 2rem;
+  align-items: center;
 
 }
 
@@ -38,6 +40,7 @@
 .dashboard-movie-list {
   display: flex;
   gap: 1rem;
+  align-self: center;
    @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -59,4 +62,25 @@
   span {
     font-size: 1rem;
   }
+}
+.go_to_homepage{
+     padding: .5rem 1rem;
+     margin-top: 2rem;
+    background-color:$btn-bg;
+    color: $btn-color;
+    font-weight: 500;
+    font-size: .75rem;
+    border-radius: .5rem;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+                 @media(width >= 60rem){
+                  padding: 1rem 1rem;
+                  margin-left: 50rem;
+
+    }
+    transition: transform 0.3s ease;
+       &:hover{
+        transform: scale(1.1);
+    }
 }

@@ -5,7 +5,7 @@ import '../styles/SignInForm.scss';
 import Link from 'next/link';
 
 const SignInForm = () => {
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
@@ -13,16 +13,19 @@ const SignInForm = () => {
     e.preventDefault();
     setError('');
     try {
-      const res = await fetch('/api/login', {
+      const res = await fetch('https://c-flicks.onrender.com/users/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ username: name, password }),
       });
       if (res.ok) {
-        // // Redirect to dashboard or show dashboard
-        // window.location.href = '/dashboard';
+             if (res.ok) {
+                 const data = await res.json(); // assuming your API returns user info
+                 localStorage.setItem('username', data.username || name); // fallback to input if needed
+                 window.location.href = '/dashboard';
+}
       } else {
-        setError('Invalid email or password');
+        setError('Invalid name or password');
       }
     } catch (err) {
       setError('An error occurred. Please try again.');
@@ -34,12 +37,12 @@ const SignInForm = () => {
         <h2>Login</h2>
       <form onSubmit={handleSubmit} method="post">
         <input
-          type="email"
-          name="email"
-          placeholder="Email"
+          type="text"
+          name="username"
+          placeholder="Username"
           required
-          value={email}
-          onChange={e => setEmail(e.target.value)}
+          value={name}
+          onChange={e => setName(e.target.value)}
         />
         <input
           type="password"

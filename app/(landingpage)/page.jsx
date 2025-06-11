@@ -4,11 +4,11 @@ import "../globals.scss";
 import Slider_component from "../components/Slider_component";
 import Join from "../components/Join";
 import QuestionSection from "../components/QuestionSection";
-import { useTranslations } from 'next-intl';
 
 
 export default function Home() {
-  const t = useTranslations();
+ 
+  
 
   return (
     <div>

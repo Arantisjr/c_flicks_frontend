@@ -1,14 +1,24 @@
+'use client'
 import '../styles/DashboardUI.scss';
+import Link from 'next/link';
 
-const DashboardUI = ({ username }) => {
+import { useState, useEffect } from 'react';
+
+const DashboardUI = () => {
+  const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    const storedUsername = localStorage.getItem('username');
+    setUsername(storedUsername || 'User');
+  }, []);
   // Example static data; replace with real data from your backend
   const watchlist = [
     { id: 1, title: "Inception", thumbnail: "/images/inception.jpg" },
     { id: 2, title: "Interstellar", thumbnail: "/images/interstellar.jpg" },
-      { id: 1, title: "Inception", thumbnail: "/images/inception.jpg" },
-    { id: 2, title: "Interstellar", thumbnail: "/images/interstellar.jpg" },
-      { id: 1, title: "Inception", thumbnail: "/images/inception.jpg" },
-    { id: 2, title: "Interstellar", thumbnail: "/images/interstellar.jpg" },
+      { id: 3, title: "Inception", thumbnail: "/images/inception.jpg" },
+    { id: 4, title: "Interstellar", thumbnail: "/images/interstellar.jpg" },
+      { id: 5, title: "Inception", thumbnail: "/images/inception.jpg" },
+    { id: 6, title: "Interstellar", thumbnail: "/images/interstellar.jpg" },
   ];
   const recentlyWatched = [
     { id: 3, title: "The Matrix", thumbnail: "/images/matrix.jpg" },
@@ -67,6 +77,9 @@ const DashboardUI = ({ username }) => {
           </div>
         </div>
       </div>
+   <Link href={"/homepage"} className='go_to_homepage_link'>
+    <button className='go_to_homepage'>Go to Homepage</button>
+   </Link>  
     </div>
   );
 };
