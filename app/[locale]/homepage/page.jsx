@@ -9,7 +9,6 @@ export default function Home() {
   return (
     <div >
       <nav className="Navbar">
-        {/* <NavBar /> */}
         <HeroSection2 />
       </nav>
       <hr className="breakline"/>

@@ -1,5 +1,4 @@
 import Footer from "../components/Footer";
-import NavBar from "../components/NavBar";
 import "../globals.scss";
 
  
@@ -20,7 +19,6 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <body>
         <nav>
-          <NavBar />
         </nav>
         {children}
          <footer className="footer">

@@ -4,8 +4,7 @@ import Link from 'next/link';
 import '../styles/LoginForm.scss';
 
 const LoginForm = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [UserName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -15,15 +14,19 @@ const LoginForm = () => {
       const res = await fetch('https://c-flicks.onrender.com/users/sign_up', { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ firstName, lastName, email, password }),
+        body: JSON.stringify({ UserName, email, password }),
       });
       if (res.ok) {
-        // Handle successful sign up (e.g., redirect to dashboard)
+        alert('Signup successful!');
+        window.location.href = '/homepage'; 
       } else {
-        // Handle error (e.g., show error message)
+        const errorData = await res.json();
+        console.error('Signup error:', errorData);
+        alert(errorData);
       }
     } catch (error) {
       // Handle network error
+      console.error('Network error:', error); 
     }
   };
 
@@ -33,22 +36,14 @@ const LoginForm = () => {
       <form onSubmit={handleSubmit} method="post">
         <input
           type="text"
-          id="firstName"
-          name="firstName"
-          placeholder="First Name"
+          id="username"
+          name="username"
+          placeholder="Username"
           required
-          value={firstName}
-          onChange={e => setFirstName(e.target.value)}
+          value={UserName}
+          onChange={e => setUserName(e.target.value)}
         />
-        <input
-          type="text"
-          id="lastName" 
-          name="lastName"
-          placeholder="Last Name"
-          required
-          value={lastName}
-          onChange={e => setLastName(e.target.value)}
-        />
+       
         <input
           type="email"
           id="email"
@@ -67,9 +62,9 @@ const LoginForm = () => {
           value={password}
           onChange={e => setPassword(e.target.value)}
         />
-        <Link href='/homepage'>
+       
         <button type="submit">Create an account</button>
-        </Link>
+        
       </form>
       <p>Already have an account? <Link href="/signup">Sign in</Link></p>
     </div>
