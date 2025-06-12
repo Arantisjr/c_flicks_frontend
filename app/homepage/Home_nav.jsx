@@ -24,13 +24,11 @@ const Home_nav = () => {
         <p className="logo_name"> C-FLICKS </p>
         <div className="Nav_left_section">
          <Language />
-          <Link href="/">
-            {" "}
+        
        <Link href='/'>
       
         <Button text="Sign out" />{" "}
        </Link>    
-          </Link>
         </div>
       </div>
     </>
