@@ -1,17 +1,27 @@
 'use client'
 
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../styles/HeroSection.scss";
 import Button from "./Button";
 import Link from 'next/link'
 
 const HeroSection = () => {
-  const[email, setEmail] = useState('');
-  const signupUrl = ` /signup?email=${encodeURIComponent(email)}`;
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+  const signupUrl = `/signup?email=${encodeURIComponent(email)}`;
 
-  const handleSubmit = () => {
-    console.log("Email: ", email);
-  }
+  // Simple email validation
+  const isEmailValid = email.trim().length > 0 && /\S+@\S+\.\S+/.test(email);
+
+  const handleClick = (e) => {
+    if (!isEmailValid) {
+      e.preventDefault();
+      setError('Please input a correct email address.');
+    } else {
+      setError('');
+    }
+  };
+
   return (
     <>
       <div className="Hero_main_container">
@@ -24,9 +34,15 @@ const HeroSection = () => {
           className="hero_email"
           placeholder="Email address"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setError('');
+          }}
         />
-    <Link href ={signupUrl} > <Button text='Get Started' /></Link>
+        <Link href={isEmailValid ? signupUrl : "#"} tabIndex={isEmailValid ? 0 : -1} onClick={handleClick}>
+          <Button text='Get Started' disabled={!isEmailValid} />
+        </Link>
+        {error && <p style={{ color: 'red', margin: '0.5rem 0' }}>{error}</p>}
       </div>
     </>
   );
