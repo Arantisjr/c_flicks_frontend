@@ -24,7 +24,7 @@ const Home_nav = () => {
         <p className="logo_name"> C-FLICKS </p>
         <div className="Nav_left_section">
          <Language />
-          <Link href="/homepage">
+          <Link href="/">
             {" "}
        <Link href='/'>
       

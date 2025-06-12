@@ -1,12 +1,20 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import '../styles/LoginForm.scss';
 
 const LoginForm = () => {
   const [UserName, setUserName] = useState('');
-  const [email, setEmail] = useState('');
+  const searchParams = useSearchParams();
+  const emailFromQuery = searchParams.get('email') || '';
+  const [email, setEmail] = useState(emailFromQuery);
   const [password, setPassword] = useState('');
+
+
+  useEffect(() => {
+      setEmail(emailFromQuery);
+  }, [emailFromQuery]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,7 +22,7 @@ const LoginForm = () => {
       const res = await fetch('https://c-flicks.onrender.com/users/sign_up', { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username:UserName, email, password }),
+        body: JSON.stringify({ username: UserName, email, password }),
       });
       if (res.ok) {
         alert('Signup successful!');
