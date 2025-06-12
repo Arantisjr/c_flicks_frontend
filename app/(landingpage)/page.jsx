@@ -1,5 +1,4 @@
 
-
 import HeroSection from "../components/HeroSection";
 import "../globals.scss";
 import Slider_component from "../components/Slider_component";
@@ -10,7 +9,6 @@ export default function Home() {
   return (
     <div>
       <nav className="Navbar">
-        {/* <NavBar /> */}
         <HeroSection />
       </nav>
       <hr className="breakline" />

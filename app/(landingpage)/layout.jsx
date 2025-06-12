@@ -7,7 +7,7 @@ export const metadata = {
   description: "A movie app for Cameroonians",
 };
 
-export default async function RootLayout({ children, params }) {
+export default async function RootLayout({ children }) {
   return (
     <html>
       <body>
