@@ -3,10 +3,12 @@
 import React, { useState } from 'react';
 import '../styles/SignInForm.scss';
 import Link from 'next/link';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const SignInForm = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
@@ -19,11 +21,9 @@ const SignInForm = () => {
         body: JSON.stringify({ username: name, password }),
       });
       if (res.ok) {
-             if (res.ok) {
-                 const data = await res.json(); 
-                 localStorage.setItem('username', data.username || name);
-                 window.location.href = '/dashboard';
-}
+        const data = await res.json(); 
+        localStorage.setItem('username', data.username || name);
+        window.location.href = '/dashboard';
       } else {
         setError('Invalid name or password');
       }
@@ -34,7 +34,7 @@ const SignInForm = () => {
 
   return (
     <div className="sign_in_form">
-        <h2>Login</h2>
+      <h2>Login</h2>
       <form onSubmit={handleSubmit} method="post">
         <input
           type="text"
@@ -44,18 +44,37 @@ const SignInForm = () => {
           value={name}
           onChange={e => setName(e.target.value)}
         />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
+        <div style={{ position: 'relative' }}>
+          <input
+            type={showPassword ? "text" : "password"}
+            name="password"
+            placeholder="Password"
+            required
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            style={{ paddingRight: "2.5rem" }}
+          />
+          <span
+            onClick={() => setShowPassword((prev) => !prev)}
+            style={{
+              position: "absolute",
+              right: "0.75rem",
+              top: "55%",
+              transform: "translateY(-50%)",
+              cursor: "pointer",
+              color: "#888"
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label={showPassword ? "Hide password" : "Show password"}
+          >
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </span>
+        </div>
         <button type="submit">Login</button>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
-      <p>Don't have an account? <Link  className='sign_up' href="/signup">Sign up</Link></p>
+      <p>Don't have an account? <Link className='sign_up' href="/signup">Sign up</Link></p>
     </div>
   );
 };

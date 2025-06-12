@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import '../styles/LoginForm.scss';
 
 const LoginForm = () => {
@@ -10,10 +11,10 @@ const LoginForm = () => {
   const emailFromQuery = searchParams.get('email') || '';
   const [email, setEmail] = useState(emailFromQuery);
   const [password, setPassword] = useState('');
-
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
-      setEmail(emailFromQuery);
+    setEmail(emailFromQuery);
   }, [emailFromQuery]);
 
   const handleSubmit = async (e) => {
@@ -33,7 +34,6 @@ const LoginForm = () => {
         alert(errorData);
       }
     } catch (error) {
-      // Handle network error
       console.error('Network error:', error); 
     }
   };
@@ -51,7 +51,6 @@ const LoginForm = () => {
           value={UserName}
           onChange={e => setUserName(e.target.value)}
         />
-       
         <input
           type="email"
           id="email"
@@ -61,18 +60,35 @@ const LoginForm = () => {
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Password"
-          required
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
-       
+        <div style={{ position: 'relative',  }}>
+          <input
+            type={showPassword ? "text" : "password"}
+            id="password"
+            name="password"
+            placeholder="Password"
+            required
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            style={{ paddingRight: "2.5rem" }}
+          />
+          <span
+            onClick={() => setShowPassword((prev) => !prev)}
+            style={{
+              position: "absolute",
+              right: "0.75rem",
+              top: "60%",
+              transform: "translateY(-50%)",
+              cursor: "pointer",
+              color: "#888"
+            }}
+            tabIndex={0}
+            role="button"
+            aria-label={showPassword ? "Hide password" : "Show password"}
+          >
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </span>
+        </div>
         <button type="submit">Create an account</button>
-        
       </form>
       <p>Already have an account? <Link href="/login">Sign in</Link></p>
     </div>
