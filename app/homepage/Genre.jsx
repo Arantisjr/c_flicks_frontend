@@ -5,6 +5,8 @@ import { GiLoveMystery } from "react-icons/gi";
 import { LiaNimblr } from "react-icons/lia";
 import { RiMovie2AiFill } from "react-icons/ri";
 import "../styles/Genre.scss";
+import { FaTimes } from "react-icons/fa";
+import Button from "../components/Button";
 
 const GENRE_MAP = {
   All: "movies",
@@ -27,6 +29,9 @@ const Genre = () => {
   });
   const [visibleCount, setvisibleCount] = useState(14);
   const [selectedGenre, setSelectedGenre] = useState("All");
+  const [search, setSearch] = useState("");
+  const [movie, setMovie] = useState(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchAll = async () => {
@@ -88,6 +93,49 @@ const Genre = () => {
 
   const moviesToShow = getMoviesByGenre().slice(0, visibleCount);
 
+  //search movies
+  useEffect(() => {
+    if (!search.trim()) {
+      setMovie(null);
+      setError("");
+      return;
+    }
+    const timeout = setTimeout(async () => {
+      try {
+        const res = await fetch(`https://c-flicks.onrender.com/all-movies/search/${encodeURIComponent(search)}`);
+        if (!res.ok) {
+          setMovie(null);
+          setError("Movie not found.");
+          return;
+        }
+        const data = await res.json();
+        if (data && data.length > 0) {
+          setMovie(data[0]);
+          setError("");
+        } else {
+          setMovie(null);
+          setError("Movie not found.");
+        }
+      } catch {
+        setMovie(null);
+        setError("An error occurred. Please try again.");
+      }
+    }, 500); // 500ms debounce
+
+    return () => clearTimeout(timeout);
+  }, [search]);
+
+  const handleSearch = async (e) => {
+    e.preventDefault();
+    // No need to fetch here, already handled by useEffect
+  };
+
+  const handleClear = () => {
+    setSearch("");
+    setMovie(null);
+    setError("");
+  };
+
   return (
     <>
       <div className="genre-div">
@@ -131,26 +179,63 @@ const Genre = () => {
                 () => {
                   setSelectedGenre(genre.name);
                   setvisibleCount(14);
-              }
+                }
               }
               isActive={selectedGenre === genre.name}
             />
           ))}
         </div>
+        <form className="search-form" onSubmit={handleSearch} style={{ position: "relative" }}>
+          <input
+            type="text"
+            className="hero_email"
+            placeholder='Search movies'
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            autoComplete="off"
+          />
+          {search && (
+            <span
+              className="clear-search"
+              onClick={handleClear}
+              aria-label='Clear search'
+              tabIndex={0}
+              role="button"
+            >
+              <FaTimes />
+            </span>
+          )}
+          <Button text='Search' />
+        </form>
         <div className="movies_div">
           <div className="all_movies">
-            {moviesToShow.length > 0 ? (
-              moviesToShow.map((m) => (
-                <div className="movieList" key={m.id}>
-                  <img src={m.thumbnail} alt={`movie number ${m.id}`} />
-                  <p>{m.movie_name}</p>
-                </div>
-              ))
+            {/* Show search result if searching, otherwise show all/genre movies */}
+            {search.trim() ? (
+              <>
+                {error && <p style={{ color: "red", fontWeight: "bold" }}>{error}</p>}
+                {movie && (
+                  <div className="search-result">
+                    <h2>{movie.movie_name}</h2>
+                    <img src={movie.thumbnail} alt={movie.movie_name} style={{ width: "150px" }} />
+                    <p>{movie.description}</p>
+                  </div>
+                )}
+              </>
             ) : (
-              <p>Loading movies...</p>
+              moviesToShow.length > 0 ? (
+                moviesToShow.map((m) => (
+                  <div className="movieList" key={m.id}>
+                    <img src={m.thumbnail} alt={`movie number ${m.id}`} />
+                    <p>{m.movie_name}</p>
+                  </div>
+                ))
+              ) : (
+                <p>Loading movies...</p>
+              )
             )}
           </div>
-          {visibleCount < getMoviesByGenre().length && (
+          {/* Only show Show more if not searching */}
+          {!search.trim() && visibleCount < getMoviesByGenre().length && (
             <button className="showmore" onClick={showMore}>
               Show more
             </button>

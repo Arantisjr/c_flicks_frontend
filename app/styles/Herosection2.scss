@@ -9,7 +9,7 @@
     padding: 3rem 4rem;
     text-align: center;
         @media (width< 60rem){
-    padding-top: 10rem;
+    padding-top: 8rem;
 
         }
 
@@ -55,18 +55,4 @@
     padding: 1rem 0.5rem;
     max-width: 95vw;
   }
-}
-.clear-search{
-    position: absolute;
-    right: 100px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: #888;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-        @media (width < 60rem) {
-            right: 23px;
-            top: 39%;
-}
 }

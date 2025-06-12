@@ -7,6 +7,7 @@ import Link from 'next/link'
 
 const HeroSection = () => {
   const[email, setEmail] = useState('');
+  const signupUrl = ` /signup?email=${encodeURIComponent(email)}`;
 
   const handleSubmit = () => {
     console.log("Email: ", email);
@@ -25,7 +26,7 @@ const HeroSection = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-    <Link href ='/signup' > <Button onClick= {handleSubmit} text='Get Started' /></Link>
+    <Link href ={signupUrl} > <Button text='Get Started' /></Link>
       </div>
     </>
   );

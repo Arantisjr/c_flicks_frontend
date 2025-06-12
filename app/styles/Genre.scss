@@ -2,6 +2,9 @@
 .genre-div{
     padding: 1rem;
     padding-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
        h1{
         color: white;
         font-weight: bold;
@@ -108,4 +111,39 @@
        &:hover{
         transform: scale(1.1);
     }
+}
+
+.search-form{
+    display: flex;
+    gap: 2rem;
+    position: relative;
+    align-items: center;
+    margin: 2rem 4rem;
+  
+    @media (width <= 414px){
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .hero_email{
+        padding: 1rem 2rem;
+        font-weight: bold;
+        border: none;
+        font: 14px;
+        border-radius: 1rem;
+    }
+    .clear-search{
+    position: absolute;
+    right: 120px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+        @media (width < 60rem) {
+            right: 23px;
+            top: 32%;
+}
+}
 }
