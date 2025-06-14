@@ -1,28 +1,31 @@
-'use client';
-import React, { useState, useEffect } from 'react';
-import '../styles/Slider_component.scss';
+"use client";
+import React, { useState, useEffect } from "react";
+import "../styles/Slider_component.scss";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { useTranslations } from "next-intl";
+import { Link } from "../../../i18n/navigation";
 
 const Slider_component = () => {
+  const t = useTranslations("SliderComponent");
   const [startIndex, setStartIndex] = useState(0);
   const imagesPerPage = 3;
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('https://c-flicks.onrender.com/all-movies')
+    fetch("https://c-flicks.onrender.com/all-movies")
       .then((res) => res.json())
       .then((data) => {
         setMovies(data);
         setLoading(false);
       })
       .catch((err) => {
-        console.error('Error fetching C-flicks movies', err);
+        console.error("Error fetching C-flicks movies", err);
         setLoading(false);
       });
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p>{t("loading")}</p>;
 
   const currentImages = movies.slice(startIndex, startIndex + imagesPerPage);
 
@@ -32,15 +35,15 @@ const Slider_component = () => {
   };
 
   const prevSlide = () => {
-    setStartIndex((prev) => Math.max(prev - imagesPerPage, 0)); 
+    setStartIndex((prev) => Math.max(prev - imagesPerPage, 0));
   };
 
   return (
     <div className="slide_main_div">
-      <h1 className='trending'>Trending now</h1>
+      <h1 className="trending">{t("trending")}</h1>
 
       <div className="image_div">
-       <button
+        <button
           className="slider_button"
           onClick={prevSlide}
           disabled={startIndex === 0}
@@ -48,7 +51,6 @@ const Slider_component = () => {
         >
           <FaAngleLeft />
         </button>
-       
 
         {currentImages.map((movie) => (
           <div className="slider_item" key={movie.id}>
@@ -56,8 +58,7 @@ const Slider_component = () => {
           </div>
         ))}
 
-       
-       <button
+        <button
           className="slider_button"
           onClick={nextSlide}
           disabled={startIndex + imagesPerPage >= movies.length}

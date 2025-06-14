@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/Reason_div.scss'
+import "../styles/Reason_div.scss";
 
 const Reason_div = ({text}) => {
   return (

@@ -1,18 +1,21 @@
 import Footer from "../components/Footer";
-import NavBar from "../components/NavBar";
 import "../globals.scss";
+import Home_nav from "./Home_nav";
 
 export const metadata = {
   title: "C-Flicks",
-  description: "A movie app for Cameroonians",
+  description:
+    "C-flicks is a movie app for Cameroonians, providing a platform to discover and enjoy local and international films.",
+  keywords:
+    "movies, Cameroonian films, film discovery, local cinema, international films, C-Flicks",
 };
 
 export default async function RootLayout({ children }) {
   return (
-    <html>
+    <html lang="en">
       <body>
         <nav>
-          <NavBar />
+          <Home_nav />
         </nav>
         {children}
         <footer className="footer">

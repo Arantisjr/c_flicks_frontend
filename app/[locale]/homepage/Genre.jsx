@@ -102,7 +102,11 @@ const Genre = () => {
     }
     const timeout = setTimeout(async () => {
       try {
-        const res = await fetch(`https://c-flicks.onrender.com/all-movies/search/${encodeURIComponent(search)}`);
+        const res = await fetch(
+          `https://c-flicks.onrender.com/all-movies/search/${encodeURIComponent(
+            search
+          )}`
+        );
         if (!res.ok) {
           setMovie(null);
           setError("Movie not found.");
@@ -154,7 +158,8 @@ const Genre = () => {
                   key={genre.name}
                   style={{
                     cursor: "pointer",
-                    fontWeight: selectedGenre === genre.name ? "bold" : "normal",
+                    fontWeight:
+                      selectedGenre === genre.name ? "bold" : "normal",
                   }}
                   onClick={() => {
                     setSelectedGenre(genre.name);
@@ -175,63 +180,69 @@ const Genre = () => {
               key={genre.name}
               genre_img={genre.icon}
               genre_type={genre.name}
-              clickme={
-                () => {
-                  setSelectedGenre(genre.name);
-                  setvisibleCount(14);
-                }
-              }
+              clickme={() => {
+                setSelectedGenre(genre.name);
+                setvisibleCount(14);
+              }}
               isActive={selectedGenre === genre.name}
             />
           ))}
         </div>
-        <form className="search-form" onSubmit={handleSearch} style={{ position: "relative" }}>
+        <form
+          className="search-form"
+          onSubmit={handleSearch}
+          style={{ position: "relative" }}
+        >
           <input
             type="text"
             className="hero_email"
-            placeholder='Search movies'
+            placeholder="Search movies"
             value={search}
-            onChange={e => setSearch(e.target.value)}
+            onChange={(e) => setSearch(e.target.value)}
             autoComplete="off"
           />
           {search && (
             <span
               className="clear-search"
               onClick={handleClear}
-              aria-label='Clear search'
+              aria-label="Clear search"
               tabIndex={0}
               role="button"
             >
               <FaTimes />
             </span>
           )}
-          <Button text='Search' />
+          <Button text="Search" />
         </form>
         <div className="movies_div">
           <div className="all_movies">
             {/* Show search result if searching, otherwise show all/genre movies */}
             {search.trim() ? (
               <>
-                {error && <p style={{ color: "red", fontWeight: "bold" }}>{error}</p>}
+                {error && (
+                  <p style={{ color: "red", fontWeight: "bold" }}>{error}</p>
+                )}
                 {movie && (
                   <div className="search-result">
                     <h2>{movie.movie_name}</h2>
-                    <img src={movie.thumbnail} alt={movie.movie_name} style={{ width: "150px" }} />
+                    <img
+                      src={movie.thumbnail}
+                      alt={movie.movie_name}
+                      style={{ width: "150px" }}
+                    />
                     <p>{movie.description}</p>
                   </div>
                 )}
               </>
+            ) : moviesToShow.length > 0 ? (
+              moviesToShow.map((m) => (
+                <div className="movieList" key={m.id}>
+                  <img src={m.thumbnail} alt={`movie number ${m.id}`} />
+                  <p>{m.movie_name}</p>
+                </div>
+              ))
             ) : (
-              moviesToShow.length > 0 ? (
-                moviesToShow.map((m) => (
-                  <div className="movieList" key={m.id}>
-                    <img src={m.thumbnail} alt={`movie number ${m.id}`} />
-                    <p>{m.movie_name}</p>
-                  </div>
-                ))
-              ) : (
-                <p>Loading movies...</p>
-              )
+              <p>Loading movies...</p>
             )}
           </div>
           {/* Only show Show more if not searching */}

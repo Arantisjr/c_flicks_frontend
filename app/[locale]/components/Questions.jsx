@@ -1,22 +1,22 @@
-'use client';
-import React, { useState, useRef, useEffect } from 'react';
-import '../styles/Questions.scss';
+"use client";
+import React, { useState, useRef, useEffect } from "react";
+import "../styles/Questions.scss";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
 const Questions = ({ question, answer }) => {
   const [showText, setShowText] = useState(false);
-  const [height, setHeight] = useState('0px');
+  const [height, setHeight] = useState("0px");
   const contentRef = useRef(null);
 
   const toggleText = () => {
-    setShowText(prev => !prev);
+    setShowText((prev) => !prev);
   };
 
   useEffect(() => {
     if (showText && contentRef.current) {
       setHeight(`${contentRef.current.scrollHeight}px`);
     } else {
-      setHeight('0px');
+      setHeight("0px");
     }
   }, [showText]);
 
@@ -28,12 +28,10 @@ const Questions = ({ question, answer }) => {
       </div>
       <div
         ref={contentRef}
-        className={`answers_wrapper ${showText ? 'expanded' : ''}`}
+        className={`answers_wrapper ${showText ? "expanded" : ""}`}
         style={{ maxHeight: height }}
       >
-        <div className="answers">
-          {answer}
-        </div>
+        <div className="answers">{answer}</div>
       </div>
     </div>
   );
