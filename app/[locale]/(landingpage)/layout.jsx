@@ -1,5 +1,5 @@
 import Footer from "../components/Footer";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/NavBar"; 
 import "../globals.scss";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";

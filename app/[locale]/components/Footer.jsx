@@ -16,7 +16,7 @@ const Footer = () => {
   const headings = t.raw("headings");
   const company = t.raw("company");
   const connect = t.raw("connect");
-  const legal = t.raw("legal");
+  const legal = t.raw("legal"); 
 
   console.log(headings);
 

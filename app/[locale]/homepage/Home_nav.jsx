@@ -3,7 +3,8 @@ import Button from "../components/Button";
 import React, { useEffect, useState } from "react";
 import "../styles/NavBar.scss";
 import Link from "next/link";
-import Language from "../components/Language";
+import Language from "../components/LanguageSwitcher";
+import { useParams } from "next/navigation";
 
 const Home_nav = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -15,13 +16,15 @@ const Home_nav = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+    const { locale } = useParams();
+  // alert(locale);
 
   return (
     <>
       <div className={`NavBarMainContainer ${scrolled ? "scrolled" : ""}`}>
         <p className="logo_name"> C-FLICKS </p>
         <div className="Nav_left_section">
-          <Language />
+          <Language currentLocale={locale} />
 
           <Link href="/">
             <Button text="Sign out" />{" "}

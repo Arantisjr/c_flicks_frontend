@@ -7,6 +7,9 @@ import { RiMovie2AiFill } from "react-icons/ri";
 import "../styles/Genre.scss";
 import { FaTimes } from "react-icons/fa";
 import Button from "../components/Button";
+import { useTranslations } from "next-intl";
+
+
 
 const GENRE_MAP = {
   All: "movies",
@@ -18,6 +21,10 @@ const GENRE_MAP = {
 };
 
 const Genre = () => {
+
+  const t = useTranslations("Genre");
+const genre_types = t.raw("genre_types");
+const some_other_texts = t.raw("some_other_texts");
   const [dropdownOpen, setdropdownOpen] = useState(false);
   const [data, setData] = useState({
     movies: [],
@@ -78,12 +85,12 @@ const Genre = () => {
   };
 
   const genres = [
-    { name: "All", icon: <RiMovie2AiFill /> },
-    { name: "Drama", icon: <LiaNimblr /> },
-    { name: "Adventure", icon: <RiMovie2AiFill /> },
-    { name: "Action", icon: <LiaNimblr /> },
-    { name: "Music", icon: <LiaNimblr /> },
-    { name: "Comedy", icon: <GiLoveMystery /> },
+    { name: genre_types[0], icon: <RiMovie2AiFill /> },
+    { name: genre_types[1], icon: <LiaNimblr /> },
+    { name: genre_types[2], icon: <RiMovie2AiFill /> },
+    { name: genre_types[3], icon: <LiaNimblr /> },
+    { name: genre_types[4], icon: <LiaNimblr /> },
+    { name: genre_types[5], icon: <GiLoveMystery /> },
   ];
 
   // Visibility of movies
@@ -149,7 +156,7 @@ const Genre = () => {
             className="genre_button_text"
             onClick={() => setdropdownOpen(!dropdownOpen)}
           >
-            {dropdownOpen ? "close genres" : "show genres"}
+            {dropdownOpen ? some_other_texts[0] : some_other_texts[1]}
           </button>
           {dropdownOpen && (
             <ul>
@@ -196,7 +203,7 @@ const Genre = () => {
           <input
             type="text"
             className="hero_email"
-            placeholder="Search movies"
+            placeholder={some_other_texts[5]}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             autoComplete="off"
@@ -212,7 +219,7 @@ const Genre = () => {
               <FaTimes />
             </span>
           )}
-          <Button text="Search" />
+          <Button text={some_other_texts[2]} />
         </form>
         <div className="movies_div">
           <div className="all_movies">
@@ -242,13 +249,13 @@ const Genre = () => {
                 </div>
               ))
             ) : (
-              <p>Loading movies...</p>
+              <p>{some_other_texts[3]}</p>
             )}
           </div>
           {/* Only show Show more if not searching */}
           {!search.trim() && visibleCount < getMoviesByGenre().length && (
             <button className="showmore" onClick={showMore}>
-              Show more
+              {some_other_texts[4]}
             </button>
           )}
         </div>

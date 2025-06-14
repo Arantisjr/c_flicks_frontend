@@ -1,16 +1,16 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import "../styles/Herosection2.scss";
+import { useTranslations } from "next-intl";
 
 const HeroSection = () => {
-  // Fetch movie as user types (debounced)
+  const t = useTranslations("HeroSection2");
 
   return (
     <>
       <div className="Hero_main_container">
         <h1 className="hero_main_text">
-          Unlimited Cameroon movies, TV, shows, and more. <br /> Watch anywhere.
-          Cancel anytime.
+         {t("section2_text")} 
         </h1>
       </div>
     </>

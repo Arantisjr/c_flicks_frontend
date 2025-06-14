@@ -1,15 +1,18 @@
 import React from 'react'
-import '../styles/HomeCaption.scss'
+import '../styles/HomeCaption.scss';
+import { useTranslations } from "next-intl";
 
 const HomeCaption = () => {
+  const t = useTranslations("Home_nav");
+  
   return (
    <>
    <div className="caption_div">
     <p className='caption_text'>
-        We provide you with Cameroon's best movies. Experience Cameroonians culture at its finest
+        {t("caption_text")}
     </p>
-        <span>Know more about CamFlicks</span>
-    <button className='captionAbout'>About us</button>
+        <span>{t("other_text")}</span>
+    <button className='captionAbout'>{t("about_text")}</button>
    </div>
    </>
   )

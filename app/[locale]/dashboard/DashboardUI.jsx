@@ -1,7 +1,8 @@
 'use client'
 import '../styles/DashboardUI.scss';
 import Link from 'next/link';
-
+// import { Link } from "../../../i18n/navigation";
+  import { useTranslations } from "next-intl";
 import { useState, useEffect } from 'react';
 
 const DashboardUI = () => {
@@ -33,16 +34,20 @@ const DashboardUI = () => {
     { id: 2, title: "Interstellar", thumbnail: "/images/interstellar.jpg" },
   ];
 
+  const t = useTranslations("Dashboard");
+  const welcome_text = t.raw("welcome_text");
+  const heading = t.raw("heading");
+
   return (
     <div className="dashboard-container">
       <div className="dashboard-header">
-        <h1>Welcome, {username}!</h1>
-        <p>Enjoy the best Cameroonian movies.</p>
+        <h1>{welcome_text[0]}, {username}!</h1>
+        <p>{welcome_text[1]}</p>
       </div>
 
       <div className="dashboard-widgets">
         <div className="dashboard-widget">
-          <h2>My Watchlist</h2>
+          <h2>{heading[0]}</h2>
           <div className="dashboard-movie-list">
             {watchlist.map(movie => (
               <div className="dashboard-movie-card" key={movie.id}>
@@ -54,7 +59,7 @@ const DashboardUI = () => {
         </div>
 
         <div className="dashboard-widget">
-          <h2>Recently Watched</h2>
+          <h2>{heading[1]}</h2>
           <div className="dashboard-movie-list">
             {recentlyWatched.map(movie => (
               <div className="dashboard-movie-card" key={movie.id}>
@@ -66,7 +71,7 @@ const DashboardUI = () => {
         </div>
 
         <div className="dashboard-widget">
-          <h2>Recommended for You</h2>
+          <h2>{heading[2]}</h2>
           <div className="dashboard-movie-list">
             {recommended.map(movie => (
               <div className="dashboard-movie-card" key={movie.id}>
@@ -78,7 +83,7 @@ const DashboardUI = () => {
         </div>
       </div>
    <Link href={"/homepage"} className='go_to_homepage_link'>
-    <button className='go_to_homepage'>Go to Homepage</button>
+    <button className='go_to_homepage'>{heading[3]}</button>
    </Link>  
     </div>
   );

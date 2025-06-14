@@ -4,6 +4,7 @@ import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import '../styles/LoginForm.scss';
+import { useTranslations } from "next-intl";
 
 const LoginForm = () => {
   const [UserName, setUserName] = useState('');
@@ -37,16 +38,16 @@ const LoginForm = () => {
       console.error('Network error:', error); 
     }
   };
-
+  const t = useTranslations("sign_up_form");
   return (
     <div className="form_container">
-      <h1>Sign Up</h1>
+      <h1>{t("sign_up")}</h1>
       <form onSubmit={handleSubmit} method="post">
         <input
           type="text"
           id="username"
           name="username"
-          placeholder="Username"
+          placeholder={t("username")}
           required
           value={UserName}
           onChange={e => setUserName(e.target.value)}
@@ -55,7 +56,7 @@ const LoginForm = () => {
           type="email"
           id="email"
           name="email"
-          placeholder="Email"
+          placeholder={t("email")}
           required
           value={email}
           onChange={e => setEmail(e.target.value)}
@@ -65,7 +66,7 @@ const LoginForm = () => {
             type={showPassword ? "text" : "password"}
             id="password"
             name="password"
-            placeholder="Password"
+            placeholder={t("password")}
             required
             value={password}
             onChange={e => setPassword(e.target.value)}
@@ -88,9 +89,9 @@ const LoginForm = () => {
             {showPassword ? <FaEyeSlash /> : <FaEye />}
           </span>
         </div>
-        <button type="submit">Create an account</button>
+        <button type="submit" >{t("create_account")}</button>
       </form>
-      <p>Already have an account? <Link href="/login">Sign in</Link></p>
+      <p>{t("have_account")} <Link href="/login">{t("login")}</Link></p>
     </div>
   );
 };

@@ -1,9 +1,10 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import '../styles/SignInForm.scss';
 import Link from 'next/link';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useTranslations } from "next-intl";
 
 const SignInForm = () => {
   const [name, setName] = useState('');
@@ -31,15 +32,15 @@ const SignInForm = () => {
       setError('An error occurred. Please try again.');
     }
   };
-
+const t = useTranslations("sign_in_form");
   return (
     <div className="sign_in_form">
-      <h2>Login</h2>
+      <h2>{t("login")}</h2>
       <form onSubmit={handleSubmit} method="post">
         <input
           type="text"
           name="username"
-          placeholder="Username"
+          placeholder={t("username")}
           required
           value={name}
           onChange={e => setName(e.target.value)}
@@ -48,7 +49,7 @@ const SignInForm = () => {
           <input
             type={showPassword ? "text" : "password"}
             name="password"
-            placeholder="Password"
+            placeholder={t("password")}
             required
             value={password}
             onChange={e => setPassword(e.target.value)}
@@ -71,10 +72,10 @@ const SignInForm = () => {
             {showPassword ? <FaEyeSlash /> : <FaEye />}
           </span>
         </div>
-        <button type="submit">Login</button>
+        <button type="submit">{t("login")}</button>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
-      <p>Don't have an account? <Link className='sign_up' href="/signup">Sign up</Link></p>
+      <p>{t("no_account")} <Link className='sign_up' href="/signup">{t("sign_up")}</Link></p>
     </div>
   );
 };

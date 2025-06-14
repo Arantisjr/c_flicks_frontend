@@ -68,5 +68,68 @@
             "Conditions d'utilisation",
             "Politique de confidentialité"
         ]
+    },
+    "Dashboard": {
+        "welcome_text": [
+            "Bienvenue",
+            "Profitez des meilleurs films camerounais."
+        ],
+        "heading": [
+            "Ma liste de surveillance",
+            "Regardé récemment",
+            "Recommandé pour vous",
+            "Aller à la page d'accueil"
+        ]
+
     }
+    ,
+    "Home_nav":{
+        "caption_text": "Nous vous fournissons les meilleurs films du Cameroun. Découvrez la culture camerounaise à son meilleur.",
+        "other_text": "En savoir plus sur CamFlicks",
+        "about_text": "À propos de nous"
+    },
+     "Genre":{
+        "genre_types": [
+            "Tous",
+            "Drame",
+            "Aventure",
+            "Action",
+            "Musique",
+            "Comédie"
+        ],
+        "some_other_texts": [
+            "fermer les genres",
+            "afficher les genres",
+            "recherche",
+            "Chargement des films...",
+            "afficher plus",
+            "rechercher des films"
+
+        ]
+    },
+     "page_for_homepage": {
+        "page_text": "Regardez vos films camerounais préférés."
+    }
+    ,
+    "HeroSection2": {
+        "section2_text" : " Films, séries, émissions et plus encore en illimité au Cameroun. Regardez-les où que vous soyez. Annulez à tout moment."
+    },
+  "sign_in_form": {
+  "error1": "Nom d'utilisateur ou mot de passe invalide",
+  "error2": "Une erreur s'est produite. Veuillez réessayer.",
+  "username": "Nom d'utilisateur",
+  "password": "Mot de passe",
+  "login": "Connexion",
+  "no_account": "Vous n'avez pas de compte ?",
+  "sign_up": "S'inscrire"
+},
+"sign_up_form": {
+    "username": "Nom d'utilisateur",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "sign_up": "S'inscrire",
+    "create_account": "Créer un compte",
+    "have_account": "Vous avez déjà un compte ?",
+    "login": "Se connecter"
+}
 }

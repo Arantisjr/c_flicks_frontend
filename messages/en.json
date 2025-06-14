@@ -68,5 +68,66 @@
             "Terms of Use",
             "Privacy"
         ]
+    },
+    "Dashboard": {
+        "welcome_text": [
+            "Welcome",
+            "Enjoy the best Cameroonian movies."
+        ],
+        "heading": [
+            "My watchlist",
+            "Recently Watched",
+            "Recommended for You",
+            "Go to homepage"
+        ]
+
+    },
+    "Home_nav":{
+        "caption_text": "We provide you with Cameroon's best movies. Experience Cameroonians culture at its finest.",
+        "other_text": "Know more about CamFlicks",
+        "about_text": "About Us"
+    },
+    "Genre":{
+        "genre_types": [
+            "All",
+            "Drama",
+            "Adventure",
+            "Action",
+            "Music",
+            "Comedy"
+        ],
+        "some_other_texts": [
+            "close genres",
+            "show genres",
+            "Search",
+            "Loading movies...",
+            "show more",
+            "Search for movies"
+
+        ]
+    },
+    "page_for_homepage": {
+        "page_text": "Watch your Favorite Cameroonian movies."
+    },
+    "HeroSection2": {
+        "section2_text" : "Unlimited Cameroon movies, TV, shows, and more. Watch anywhere.Cancel anytime."
+    },
+    "sign_in_form": {
+        "error1":"Invalid name or password",
+        "error2": "An error occurred. Please try again.",
+        "username": "Username",
+        "password": "Password",
+        "login": "Login",
+        "no_account": "Don't have an account?",
+        "sign_up": "Sign up"
+    },
+    "sign_up_form": {
+        "username": "Username",
+        "email": "Email",
+        "password": "Password",
+        "sign_up": "Sign up",
+        "create_account": "Create an account",
+        "have_account": "Already have an account?",
+        "login": "Sign in"
     }
 }

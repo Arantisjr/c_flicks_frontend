@@ -5,7 +5,7 @@ import "../styles/HeroSection.scss";
 import Button from "./Button";
 // import Link from "next/link";
 import { Link } from "../../../i18n/navigation";
-import { useTranslations } from "next-intl";
+import { useTranslations } from "next-intl"; 
 
 const HeroSection = () => {
   const [email, setEmail] = useState("");
