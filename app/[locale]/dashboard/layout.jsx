@@ -1,27 +1,20 @@
 import Footer from "../components/Footer";
 import "../globals.scss";
 
- 
-
-
-
 export const metadata = {
   title: "C-Flicks",
   description: "A movie app for Cameroonians",
 };
 
 export default async function RootLayout({ children }) {
-  
   return (
-
-    <html lang="en"> 
+    <html lang="en">
       <body>
-        <nav>
-        </nav>
+        <nav></nav>
         {children}
-         <footer className="footer">
-        <Footer />
-      </footer>
+        <footer className="footer">
+          <Footer />
+        </footer>
       </body>
     </html>
   );

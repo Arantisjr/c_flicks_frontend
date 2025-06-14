@@ -1,0 +1,72 @@
+{
+    "Homepage": {
+        "welcome": "Bienvenue sur notre site !",
+        "title": "Bonjour le monde!",
+        "about": "Aller a la page a propos"
+    },
+    "NavBar": {
+        "button": "Se connecter"
+    },
+    "Hero": {
+        "title": "Films, séries, et plus encore en illimité",
+        "subtitle": "Prêt à regarder ? Entrez votre adresse e-mail pour créer ou redémarrer votre abonnement.",
+        "email": "Adresse e-mail",
+        "button": "Commencer"
+    },
+    "SliderComponent": {
+        "loading": "Chargement...",
+        "error": "Erreur lors du chargement des données",
+        "trending": "Tendance actuelle"
+    },
+    "Join": {
+        "heading": "Plus de raisons de vous joindre",
+        "reasons": [
+            "C-Flicks est une plateforme numérique dynamique dédiée à la présentation de la culture Camerounaise par la puissance des filmes.",
+            "Profitez d'une grande bibliothèque de séries et de films de qualité.",
+            "Regardez tout ce que vous voulez. Sans publicité.",
+            "Suggestions spécifiques pour vous.",
+            "Modifier ou annuler votre abonnement à tout moment.",
+            "Regardez sur votre TV, ordinateur, téléphone et tablette."
+        ]
+    },
+    "QuestionSection": {
+        "heading": "Questions fréquemment posées",
+        "questions": [
+            "Qu'est-ce que C-Flicks ?",
+            "Combien ça coûte ?",
+            "Où puis-je regarder ?",
+            "Comment annuler ?",
+            "Que puis-je regarder sur C-Flicks ?",
+            "Est-ce que C-Flicks est bon pour les enfants ?"
+        ],
+        "answers": [
+            "C-Flicks est un service d'abonnement qui offre la meilleure sélection de séries et de films Camerounaise.",
+            "C-Flicks est gratuit à regarder. Regardez vos films Camerounaise preférés sans stress",
+            "Vous pouvez regarder C-Flicks sur votre ordinateur, téléphone, tablette ou TV.",
+            "Vous pouvez annuler votre abonnement à tout moment.",
+            "C-Flicks est un service de streaming qui offre une grande variété de séries et de films de qualité.",
+            "L'expérience des enfants est inclus dans votre abonnement pour donner aux parents le contrôle, tandis que les enfants peuvent profiter de séries et de films familiaux dans leur propre espace."
+        ]
+    },
+    "Footer": {
+        "headings": [
+            "COMPANY",
+            "CONNECT",
+            "LEGAL"
+        ],
+        "company": [
+            "A propos",
+            "Commencer à regarder",
+            "Support"
+        ],
+        "connect": [
+            "Contactez-nous",
+            "Rejoignez-nous"
+        ],
+        "legal": [
+            "Aide",
+            "Conditions d'utilisation",
+            "Politique de confidentialité"
+        ]
+    }
+}

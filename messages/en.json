@@ -1,0 +1,72 @@
+{
+    "Homepage": {
+        "welcome": "Welcome to our site!",
+        "title": "Hello world!",
+        "about": "Go to the about page"
+    },
+    "NavBar": {
+        "button": "Login"
+    },
+    "Hero": {
+        "title": "Unlimited movies, TV, shows, and more",
+        "subtitle": "Ready to watch? Enter your email address to create or restart your membership.",
+        "email": "Email address",
+        "button": "Get Started"
+    },
+    "SliderComponent": {
+        "loading": "Loading...",
+        "error": "Error loading data",
+        "trending": "Trending now"
+    },
+    "Join": {
+        "heading": "More reasons to join",
+        "reasons": [
+            "C-Flicks is a vibrant digital platform dedicated to showcasing the rich and diverse culture of Cameroon through the power of films.",
+            "Enjoy a vast library of award-winning TV shows and movies.",
+            "Watch all you want. Ad-free.",
+            "Recommendations just for you.",
+            "Change or cancel your plan anytime.",
+            "Watch on your TV, computer, mobile phone and tablet."
+        ]
+    },
+    "QuestionSection": {
+        "heading": "Frequently Asked Questions",
+        "questions": [
+            "What is C-Flicks?",
+            "How much does C-Flicks cost?",
+            "Where can I watch?",
+            "How do I cancel?",
+            "What can I watch on C-Flicks?",
+            "Is C-Flicks good for kids?"
+        ],
+        "answers": [
+            "C-Flicks is a subscription service that delivers the best Cameroonian TV shows and movies.",
+            "C-Flicks is free to watch. Watch your favorite Cameroonian movies with no stress",
+            "You can watch C-Flicks on your computer, mobile phone, tablet, or TV.",
+            "You can cancel your subscription at any time.",
+            "C-Flicks is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
+            "The C-Flicks Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and movies in their own space."
+        ]
+    },
+    "Footer": {
+        "headings": [
+            "COMPANY",
+            "CONNECT",
+            "LEGAL"
+        ],
+        "company": [
+            "About",
+            "Start Watching",
+            "Support"
+        ],
+        "connect": [
+            "Contact Us",
+            "Join Us"
+        ],
+        "legal": [
+            "Help",
+            "Terms of Use",
+            "Privacy"
+        ]
+    }
+}

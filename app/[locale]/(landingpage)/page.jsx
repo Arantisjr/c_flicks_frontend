@@ -1,4 +1,3 @@
-
 import HeroSection from "../components/HeroSection";
 import "../globals.scss";
 import Slider_component from "../components/Slider_component";
@@ -6,6 +5,7 @@ import Join from "../components/Join";
 import QuestionSection from "../components/QuestionSection";
 
 export default function Home() {
+  // const t = useTranslations("HomePage");
   return (
     <div>
       <nav className="Navbar">
