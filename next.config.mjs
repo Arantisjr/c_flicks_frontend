@@ -6,7 +6,7 @@ const withNextIntl = createNextIntlPlugin({
 });
 
 const nextConfig = {
-  output: "export", // or remove if not doing static export
+  // output: "export", // or remove if not doing static export
 };
 
 export default withNextIntl(nextConfig);
