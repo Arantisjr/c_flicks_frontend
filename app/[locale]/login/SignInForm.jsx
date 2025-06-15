@@ -12,6 +12,8 @@ const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
 
+  const t = useTranslations("sign_in_form");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -23,16 +25,18 @@ const SignInForm = () => {
       });
       if (res.ok) {
         const data = await res.json(); 
+        // Store session info in localStorage
         localStorage.setItem('username', data.username || name);
+        localStorage.setItem('isLoggedIn', 'true');
         window.location.href = '/dashboard';
       } else {
-        setError('Invalid name or password');
+        setError(t("error1") || 'Invalid name or password');
       }
     } catch (err) {
-      setError('An error occurred. Please try again.');
+      setError(t("error2") || 'An error occurred. Please try again.');
     }
   };
-const t = useTranslations("sign_in_form");
+
   return (
     <div className="sign_in_form">
       <h2>{t("login")}</h2>
