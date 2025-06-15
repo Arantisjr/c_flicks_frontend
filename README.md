@@ -2,7 +2,7 @@
 
 C-FLICKS is a full-stack, responsive web application for discovering and watching movies across different genres, with support for internationalization and user authentication.
 
-[Live Preview](https://cflicks-f3ic.onrender.com/)
+[Live Preview](https://c-flicks-46qc.onrender.com)
 
 ---
 
