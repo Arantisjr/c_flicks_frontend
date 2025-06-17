@@ -1,9 +1,33 @@
+'use client';
+
 import React from 'react'
 import '../styles/HomeCaption.scss';
 import { useTranslations } from "next-intl";
+import { useEffect } from 'react';
 
 const HomeCaption = () => {
   const t = useTranslations("Home_nav");
+  //animation
+    useEffect(() => {
+      const hiddenElements = document.querySelectorAll('.caption_div');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          console.log(entry);
+          if (entry.isIntersecting) {
+            
+            entry.target.classList.add('show');
+          } else {
+            entry.target.classList.remove('show');
+          }
+        });
+      });      
+  
+      hiddenElements.forEach((el) => observer.observe(el));
+  
+      return () => {
+        hiddenElements.forEach((el) => observer.unobserve(el));
+      };
+    }, []);
   
   return (
    <>

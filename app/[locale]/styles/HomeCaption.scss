@@ -8,6 +8,11 @@ font-size: 1.5rem;
 margin-top: 2rem;
 margin-bottom: 2rem;
 font-weight: bold;
+opacity: 0;
+transition: all 1s;
+filter: blur(5px);
+transform: translateX(100%);
+
         @media(width<=414px){
             font-size: 1rem;
             text-align: center;
@@ -34,3 +39,9 @@ font-weight: bold;
             
         }
 }
+ .show{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(0);
+                    
+                }

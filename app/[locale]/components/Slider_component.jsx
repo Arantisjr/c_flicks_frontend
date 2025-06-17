@@ -38,6 +38,10 @@ const Slider_component = () => {
     setStartIndex((prev) => Math.max(prev - imagesPerPage, 0));
   };
 
+  //animation for the slider
+
+  
+
   return (
     <div className="slide_main_div">
       <h1 className="trending">{t("trending")}</h1>

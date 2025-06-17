@@ -13,6 +13,10 @@
 
     .mobile_view{
         display: none;
+          opacity: 0;
+    transition: all 1s;
+    filter: blur(5px);
+    transform: translateX(100%);
         @media (width <= 414px){
             display: block;
         }
@@ -33,6 +37,10 @@
         }
     }
     .desktop_view{
+          opacity: 0;
+    transition: all 1s;
+    filter: blur(5px);
+    transform: translateX(100%);
         display: none;
         @media(width > 414px){
             display: flex;
@@ -40,6 +48,12 @@
             align-items: center;
         }
     }
+    .show{
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+                    
+                }
     .movies_div{
         background-color: $join_div;
         width: 100%;

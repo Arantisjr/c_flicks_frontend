@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 
 const HeroSection = () => {
   const t = useTranslations("HeroSection2");
+  
 
   return (
     <>
