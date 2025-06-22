@@ -11,11 +11,12 @@ font-weight: bold;
 opacity: 0;
 transition: all 1s;
 filter: blur(5px);
-transform: translateX(100%);
+transform: translateX(50%);
 
-        @media(width<=414px){
+        @media(width<=500px){
             font-size: 1rem;
             text-align: center;
+            transform: translateY(50%);
         }
         .captionAbout{
             border: 1px solid white;
@@ -43,5 +44,9 @@ transform: translateX(100%);
         opacity: 1;
         filter: blur(0);
         transform: translateX(0);
+         @media(width<=500px){
+           
+            transform: translateY(0);
+        }
                     
                 }
