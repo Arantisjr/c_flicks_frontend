@@ -17,7 +17,7 @@ const HomeCaption = () => {
             
             entry.target.classList.add('show');
             // Unobserve after first intersection so it animates only once
-          observerInstance.unobserve(entry.target);
+          observer.unobserve(entry.target);
           } 
         });
       });      
