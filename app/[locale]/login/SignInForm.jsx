@@ -1,18 +1,25 @@
 'use client'
 
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import '../styles/SignInForm.scss';
 import Link from 'next/link';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useTranslations } from "next-intl";
+import Cookies from 'js-cookie';
 
 const SignInForm = () => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
-
   const t = useTranslations("sign_in_form");
+
+  // Redirect to dashboard if already logged in
+  useEffect(() => {
+    if (Cookies.get('isLoggedIn')) {
+      window.location.href = '/dashboard';
+    }
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,9 +32,9 @@ const SignInForm = () => {
       });
       if (res.ok) {
         const data = await res.json(); 
-        // Store session info in localStorage
-        localStorage.setItem('username', data.username || name);
-        localStorage.setItem('isLoggedIn', 'true');
+        // Store session info in cookies
+        Cookies.set('username', data.username || name, { expires: 7 });
+        Cookies.set('isLoggedIn', 'true', { expires: 7 });
         window.location.href = '/dashboard';
       } else {
         setError(t("error1") || 'Invalid name or password');
@@ -44,12 +51,12 @@ const SignInForm = () => {
         <input
           type="text"
           name="username"
-          placeholder={t("username")}
+          placeholder={t("username")} 
           required
           value={name}
           onChange={e => setName(e.target.value)}
         />
-        <div style={{ position: 'relative' }}>
+        <div className='password-field'>
           <input
             type={showPassword ? "text" : "password"}
             name="password"
@@ -57,18 +64,10 @@ const SignInForm = () => {
             required
             value={password}
             onChange={e => setPassword(e.target.value)}
-            style={{ paddingRight: "2.5rem" }}
           />
           <span
+            className='eye-icon'
             onClick={() => setShowPassword((prev) => !prev)}
-            style={{
-              position: "absolute",
-              right: "0.75rem",
-              top: "55%",
-              transform: "translateY(-50%)",
-              cursor: "pointer",
-              color: "#888"
-            }}
             tabIndex={0}
             role="button"
             aria-label={showPassword ? "Hide password" : "Show password"}

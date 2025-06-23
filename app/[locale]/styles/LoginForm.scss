@@ -57,3 +57,32 @@
     }
   }
 }
+.password-field {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  // margin-top: 1rem;
+
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem 2rem;
+    padding-right: 2.5rem; // Extra space for the eye icon
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 16px;
+    background-color: #34495e;
+    color: white;
+  }
+
+  .eye-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    z-index: 2;
+    font-size: 1.2rem;
+  }
+}

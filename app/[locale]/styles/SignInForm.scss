@@ -1,57 +1,92 @@
 @import '../globals.scss';
 
-.sign_in_form{
-    color: white;
-    padding: 2rem 3rem;
-   box-shadow: inset 0 0 10px rgba(150, 140, 140, 0.5);
+.sign_in_form {
+  color: white;
+  padding: 2rem 3rem;
+  box-shadow: inset 0 0 10px rgba(150, 140, 140, 0.5);
 
-         @media(width > 60rem){
-                padding: 3rem 45rem;
-             }
-        form{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-          }
-                h2{
-            text-align: center;
-            margin-bottom: 1rem;
-          }
-          input{
-            padding: 1rem 4rem;
-            margin-top: 1rem;
-            border: none;
-            border-radius: 0.5rem;
-            background-color: #34495e;
-            color: white;
-            display: inline-block;
-            font-size: 16px;
-          }
-          button{
-            padding: 1rem 4rem;
-            width: 100%;
-            border: none;
-            border-radius: 0.5rem;
-            background-color:$btn-bg;
-            color: $btn-color;
-            margin-bottom: 2rem;
-            cursor: pointer;
-            font-weight: bold;
-           transition: transform 0.3s ease;
-           font-size: 1rem;
-            &:hover{
-                transform: scale(1.1);
+  @media (width > 60rem) {
+    padding: 3rem 45rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  // Shared style for all input fields and button
+  input,
+  button,
+  .password-field {
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 16px;
+    display: inline-block;
+  }
+
+  input {
+    padding: 1rem 2rem;
+    background-color: #34495e;
+    color: white;
+  }
+
+  // Password field wrapper for eye icon
+  .password-field {
+    position: relative;
+    padding: 0; // Remove extra padding from wrapper
+
+    input {
+      padding: 1rem 2rem;
+      padding-right: 2.5rem; // Space for eye icon
+      margin-top: 0; // Remove extra margin since wrapper handles it
     }
-          }
-          p{
-            
-            .sign_up{
-              color: white;
-                &:hover{
-                  color: blue;
-                }
-            }
-          }
+
+    .eye-icon {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #888;
+      z-index: 2;
+      font-size: 1.2rem;
+    }
+  }
+
+  button {
+    padding: 1rem 2rem;
+    margin-bottom: 2rem;
+    background-color: $btn-bg;
+    color: $btn-color;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    font-size: 1rem;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  p {
+    text-align: center;
+    .sign_up {
+      color: white;
+      &:hover {
+        color: blue;
+      }
+    }
+  }
 }

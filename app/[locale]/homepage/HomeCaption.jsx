@@ -16,9 +16,9 @@ const HomeCaption = () => {
           if (entry.isIntersecting) {
             
             entry.target.classList.add('show');
-          } else {
-            entry.target.classList.remove('show');
-          }
+            // Unobserve after first intersection so it animates only once
+          observerInstance.unobserve(entry.target);
+          } 
         });
       });      
   

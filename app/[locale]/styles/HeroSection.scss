@@ -5,6 +5,8 @@
     padding: 3rem 4rem;
     padding-top: 10rem;
     text-align: center;
+    margin-bottom: 2rem;
+    // color: red;
         @media (width <= 375px){
             padding-top: 5rem;
         }
@@ -13,6 +15,7 @@
     .hero_main_text{
         font-weight: bold;
         font-size: 1.5rem;
+        text-align: center;
              @media(width >= 60rem){
         font-size: 2rem;
 

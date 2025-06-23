@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import '../styles/LoginForm.scss';
 import { useTranslations } from "next-intl";
+import Cookies from 'js-cookie';
 
 const LoginForm = () => {
   const [UserName, setUserName] = useState('');
@@ -16,6 +17,10 @@ const LoginForm = () => {
 
   useEffect(() => {
     setEmail(emailFromQuery);
+    // Redirect to homepage if already signed in (cookie exists)
+    if (Cookies.get('isLoggedIn')) {
+      window.location.href = '/homepage';
+    }
   }, [emailFromQuery]);
 
   const handleSubmit = async (e) => {
@@ -27,17 +32,22 @@ const LoginForm = () => {
         body: JSON.stringify({ username: UserName, email, password }),
       });
       if (res.ok) {
+        // Set cookies to remember the user is signed in
+        Cookies.set('isLoggedIn', 'true', { expires: 7 }); // expires in 7 days
+        Cookies.set('username', UserName, { expires: 7 });
         alert('Signup successful!');
         window.location.href = '/homepage'; 
       } else {
         const errorData = await res.json();
         console.error('Signup error:', errorData);
-        alert(errorData);
+        alert(errorData.message || JSON.stringify(errorData));
       }
     } catch (error) {
       console.error('Network error:', error); 
+      alert('Network error');
     }
   };
+
   const t = useTranslations("sign_up_form");
   return (
     <div className="form_container">
@@ -61,7 +71,7 @@ const LoginForm = () => {
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        <div style={{ position: 'relative',  }}>
+        <div className='password-field' style={{ position: 'relative' }}>
           <input
             type={showPassword ? "text" : "password"}
             id="password"
@@ -73,6 +83,7 @@ const LoginForm = () => {
             style={{ paddingRight: "2.5rem" }}
           />
           <span
+            className='eye-icon'
             onClick={() => setShowPassword((prev) => !prev)}
             style={{
               position: "absolute",

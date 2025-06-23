@@ -13,6 +13,7 @@ const Slider_component = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true); // Start loading
     fetch("https://c-flicks.onrender.com/all-movies")
       .then((res) => res.json())
       .then((data) => {
@@ -25,8 +26,6 @@ const Slider_component = () => {
       });
   }, []);
 
-  if (loading) return <p>{t("loading")}</p>;
-
   const currentImages = movies.slice(startIndex, startIndex + imagesPerPage);
 
   const nextSlide = () => {
@@ -38,39 +37,42 @@ const Slider_component = () => {
     setStartIndex((prev) => Math.max(prev - imagesPerPage, 0));
   };
 
-  //animation for the slider
-
-  
-
   return (
     <div className="slide_main_div">
       <h1 className="trending">{t("trending")}</h1>
 
-      <div className="image_div">
-        <button
-          className="slider_button"
-          onClick={prevSlide}
-          disabled={startIndex === 0}
-          type="button"
-        >
-          <FaAngleLeft />
-        </button>
+      {loading ? (
+        <div className="slider-loading">
+          <div className="spinner" />
+          <p>{t("loading")}</p>
+        </div>
+      ) : (
+        <div className="image_div">
+          <button
+            className="slider_button"
+            onClick={prevSlide}
+            disabled={startIndex === 0}
+            type="button"
+          >
+            <FaAngleLeft />
+          </button>
 
-        {currentImages.map((movie) => (
-          <div className="slider_item" key={movie.id}>
-            <img src={movie.thumbnail} alt={`movie number ${movie.id}`} />
-          </div>
-        ))}
+          {currentImages.map((movie) => (
+            <div className="slider_item" key={movie.id}>
+              <img src={movie.thumbnail} alt={`movie number ${movie.id}`} />
+            </div>
+          ))}
 
-        <button
-          className="slider_button"
-          onClick={nextSlide}
-          disabled={startIndex + imagesPerPage >= movies.length}
-          type="button"
-        >
-          <FaAngleRight />
-        </button>
-      </div>
+          <button
+            className="slider_button"
+            onClick={nextSlide}
+            disabled={startIndex + imagesPerPage >= movies.length}
+            type="button"
+          >
+            <FaAngleRight />
+          </button>
+        </div>
+      )}
     </div>
   );
 };

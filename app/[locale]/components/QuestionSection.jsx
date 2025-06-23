@@ -21,8 +21,8 @@ const QuestionSection = () => {
         if (entry.isIntersecting) {
           
           entry.target.classList.add('show');
-        } else {
-          entry.target.classList.remove('show');
+             observer.unobserve(entry.target);
+
         }
       });
     });      
