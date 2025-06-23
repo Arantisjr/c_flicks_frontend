@@ -3,10 +3,24 @@ import '../styles/DashboardUI.scss';
 import Link from 'next/link';
 import { useTranslations } from "next-intl";
 import Button from '../components/Button';
-// import { useState, useEffect } from 'react';
+import {  useEffect } from 'react';
+import Cookies from 'js-cookie';
+
 
 const DashboardUI = () => {
-  // const [username, setUsername] = useState('');
+  // Redirect to login if not logged in
+  useEffect(() => {
+    if (!Cookies.get('isLoggedIn')) {
+      window.location.href = '/login';
+    }
+  }, []);
+
+  // Logout handler
+  const handleLogout = () => {
+    Cookies.remove('isLoggedIn');
+    Cookies.remove('username');
+    window.location.href = '/login';
+  };
 
 
   // Example static data; replace with real data from your backend if needed
@@ -85,9 +99,9 @@ const DashboardUI = () => {
       <Link href={"/homepage"} className='go_to_homepage_link'>
         <button className='go_to_homepage'>{heading[3]}</button>
       </Link> 
-          <Link href="/">
-            <Button text="Sign out" />{" "}
-          </Link> 
+
+            <Button text="Sign out"  onClick={handleLogout} />{" "}
+          
     </div>
   );
 };
