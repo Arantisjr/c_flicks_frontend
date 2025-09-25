@@ -51,12 +51,12 @@ const some_other_texts = t.raw("some_other_texts");
           musicRes,
           comedyRes,
         ] = await Promise.all([
-          fetch("https://c-flicks.onrender.com/all-movies"),
-          fetch("https://c-flicks.onrender.com/all-movies/genre/Drama"),
-          fetch("https://c-flicks.onrender.com/all-movies/genre/Adventure"),
-          fetch("https://c-flicks.onrender.com/all-movies/genre/Action"),
-          fetch("https://c-flicks.onrender.com/all-movies/genre/Music"),
-          fetch("https://c-flicks.onrender.com/all-movies/genre/Comedy"),
+          fetch("https://c-flicks-backend.onrender.com/all-movies"),
+          fetch("https://c-flicks-backend.onrender.com/all-movies/genre/Drama"),
+          fetch("https://c-flicks-backend.onrender.com/all-movies/genre/Adventure"),
+          fetch("https://c-flicks-backend.onrender.com/all-movies/genre/Action"),
+          fetch("https://c-flicks-backend.onrender.com/all-movies/genre/Music"),
+          fetch("https://c-flicks-backend.onrender.com/all-movies/genre/Comedy"),
         ]);
 
         const [movies, drama, adventures, action, music, comedy] =

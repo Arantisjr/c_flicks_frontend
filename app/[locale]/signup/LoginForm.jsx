@@ -26,7 +26,7 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('https://c-flicks.onrender.com/users/sign_up', { 
+      const res = await fetch('https://c-flicks-backend.onrender.com/users/sign_up', { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: UserName, email, password }),

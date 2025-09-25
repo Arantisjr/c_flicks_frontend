@@ -14,7 +14,7 @@ const Slider_component = () => {
 
   useEffect(() => {
     setLoading(true); // Start loading
-    fetch("https://c-flicks.onrender.com/all-movies")
+    fetch("https://c-flicks-backend.onrender.com/all-movies")
       .then((res) => res.json())
       .then((data) => {
         setMovies(data);

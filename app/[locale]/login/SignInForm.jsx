@@ -25,7 +25,7 @@ const SignInForm = () => {
     e.preventDefault();
     setError('');
     try {
-      const res = await fetch('https://c-flicks.onrender.com/users/login', {
+      const res = await fetch('https://c-flicks-backend.onrender.com/users/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: name, password }),
